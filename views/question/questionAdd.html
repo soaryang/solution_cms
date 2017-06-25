@@ -1,0 +1,53 @@
+<%include ../common/header.html%>
+<%include ../common/navbar.html%>
+
+<!-- /subnavbar -->
+<div class="main">
+    <div class="main-inner">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <div class="widget widget-table action-table">
+                        <!-- /widget-header -->
+                        <div class="widget-content">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="formcontrols">
+                                    <form id="mainForm" class="form-horizontal" >
+                                        <div class="control-group" style="margin-top: 18px;">
+                                            <label class="control-label" for="name">问题名称</label>
+                                            <div class="controls">
+                                                <input type="text" class="span4" id="name" name="name" maxlength="10" >
+                                            </div> <!-- /controls -->
+                                        </div>
+                                        <div class="control-group" style="margin-top: 18px;">
+                                            <label class="control-label" for="tagName">问题名称</label>
+                                            <div class="controls">
+                                                <input type="text" class="span4" id="tagName" name="tagName" maxlength="10">
+                                                <input type="hidden" class="span4" id="tagId" name="tagId" maxlength="10" >
+                                            </div> <!-- /controls -->
+                                        </div>
+
+                                        <div class="form-actions">
+                                            <a class="btn btn-primary" onclick="saveQuestion();">保存</a> <a class="btn" href="/question/questionList">返回列表</a>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- /widget-content -->
+                    </div>
+                    <!-- /widget -->
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /main-inner -->
+</div>
+<!-- /main -->
+<link rel="stylesheet" href="/plug/jquery/jquery-ui.css">
+<script src="/plug/jquery/jquery-ui.js"></script>
+<script src="/js/question/questionAdd.js"></script>
+<%include ../common/footer.html%>

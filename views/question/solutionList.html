@@ -1,0 +1,42 @@
+<%include ../common/header.html%>
+<%include ../common/navbar.html%>
+
+<!-- /subnavbar -->
+<div class="main">
+    <div class="main-inner">
+        <div class="container">
+            <div class="row">
+                <div class="widget-content">
+                    <table id="tableList" class="table table-striped"
+                           data-pagination-first-text="第一页"
+                           data-pagination-pre-text="前一页"
+                           data-pagination-next-text="下一页"
+                           data-pagination-last-text="最后一页">
+                    </table>
+                    <div id="txtblogcontent">
+                        <textarea  name="content" id="container"></textarea>
+                    </div>
+                </div>
+            </div>
+            <!-- /row -->
+
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /main-inner -->
+</div>
+<!-- /main -->
+<link href="/plug/bootstrapTable/bootstrap-table.css" rel="stylesheet"/>
+<link href="/plug/markdown/css/editormd.css" rel="stylesheet" />
+<script src="/plug/bootstrapTable/bootstrap-table.js"></script>
+<script src="/plug/bootstrapTable/locale/bootstrap-table-zh-CN.js"></script>
+<script src="/js/common/soaryang.table.plug.js"></script>
+<script type="text/javascript" src="/js/common/soaryang.table.plug.js"></script>
+<script src="/plug/markdown/editormd.min.js"></script>
+<script src="/plug/markdown/lib/marked.min.js"></script>
+<script type="text/javascript" src="/plug/markdown/to-markdown.js"></script>
+<script type="text/javascript" src="/plug/markdown//markdown.min.js"></script>
+<script type="text/javascript" src="/js/question/solutionList.js"></script>
+
+
+<%include ../common/footer.html%>
