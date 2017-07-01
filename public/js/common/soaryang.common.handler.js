@@ -12,7 +12,7 @@ $.ajaxSetup({
     //完成请求后触发。即在success或error触发后触发
     complete: function (xhr, status) {
         console.log('complete invoke! status:' + status + '<br/>');
-        if (xhr.status == 444) {
+        if (xhr.status == 401) {
             window.location = '/login';
             return;
         }

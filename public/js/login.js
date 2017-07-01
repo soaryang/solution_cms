@@ -2,12 +2,20 @@
  * Created by Administrator on 2017/6/24 0024.
  */
 function login(){
-    //var userName = $('#userName').val(), password = $('#userName').val();
-
-    var data = 'username=' + $('#userName').val() + '&password=' + $('#password').val();
-
-    $.post("/v1/api/login",{username:$('#userName').val(),password:$('#password').val()},function(result){
+    /*$.post("/v1/api/login",{username:$('#userName').val(),password:$('#password').val()},function(result){
         $("span").html(result);
+    });*/
+    $.ajax({
+        url:"/v1/api/login",
+        type: "post",
+        dataType: "json",
+        data: {userName:$('#userName').val(),password:$('#password').val()}
+    }).done(function (data) {
+        if (data.code == 200) {
+            window.location.href='/question';
+        } else {
+            alert(data.message);
+        };
     });
 
    /* $.ajax({
