@@ -2,15 +2,18 @@ var screenColumnsArray =[
     {
         field: 'id',
         title: '编号',
-        align: 'center'
+        align: 'center',
+        width:'20%'
     },
     {
         field: 'name',
         title: '名称',
-        align: 'center'
+        align: 'center',
+        width:'20%'
     },
     {
-        field: 'id', title: '操作',
+        field: '',
+        title: '操作',
         align: 'center',
         formatter: function (value, row, index) {
             var button = '<a class="btn btn-info">编辑</a>&nbsp;';
@@ -26,4 +29,10 @@ var screenTableUrl = '/v1/api/admin/tag/page';
 var screenQueryObject = {
     pageSize: 20
 };
-$.initTable('tableList', screenColumnsArray, screenQueryObject, screenTableUrl,function(){});
+$.initTable('tableList', screenColumnsArray, screenQueryObject, screenTableUrl);
+
+$('.search').click(function () {
+    screenQueryObject.id = $("#id").val();
+    screenQueryObject.name = $("#name").val();
+    $.initTable('tableList', screenColumnsArray, screenQueryObject, screenTableUrl);
+});

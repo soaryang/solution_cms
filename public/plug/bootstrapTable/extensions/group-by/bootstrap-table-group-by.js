@@ -32,7 +32,7 @@
             if (!row.IsParent) {
                 for (var prop in row) {
                     if (!isNaN(parseFloat(row[prop]))) {
-                        if (that.columns[that.fieldsColumnsIndex[prop]].groupBySumGroup) {
+                        if (that.columns[$.fn.bootstrapTable.utils.getFieldIndex(that.columns, prop)].groupBySumGroup) {
                             if (sumRow[prop] === undefined) {
                                 sumRow[prop] = 0;
                             }
@@ -167,7 +167,7 @@
 
                 // Compatibility: IE < 9 and old browsers
                 if (!Object.keys) {
-                    $.fn.bootstrapTable.utils.objectKeys();
+                    setObjectKeys();
                 }
 
                 //Make sure that the internal variables are set correctly

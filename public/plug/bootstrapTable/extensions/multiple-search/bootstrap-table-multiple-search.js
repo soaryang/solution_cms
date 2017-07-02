@@ -9,8 +9,7 @@
     'use strict';
 
     $.extend($.fn.bootstrapTable.defaults, {
-        multipleSearch: false,
-	    delimeter: " "
+        multipleSearch: false
     });
 
     var BootstrapTable = $.fn.bootstrapTable.Constructor,
@@ -18,10 +17,7 @@
 
     BootstrapTable.prototype.initSearch = function () {
         if (this.options.multipleSearch) {
-            if (this.searchText === undefined) {
-                return;
-            }
-            var strArray = this.searchText.split(this.options.delimeter),
+            var strArray = this.searchText.split(" "),
                 that = this,
                 f = $.isEmptyObject(this.filterColumns) ? null : this.filterColumns,
                 dataFiltered = [];
@@ -35,7 +31,7 @@
                         for (var key in item) {
                             key = $.isNumeric(key) ? parseInt(key, 10) : key;
                             var value = item[key],
-                                column = that.columns[that.fieldsColumnsIndex[key]],
+                                column = that.columns[$.fn.bootstrapTable.utils.getFieldIndex(that.columns, key)],
                                 j = $.inArray(key, that.header.fields);
 
                             // Fix #142: search use formated data

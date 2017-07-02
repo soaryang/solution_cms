@@ -5,7 +5,6 @@
 
 (function ($) {
     'use strict';
-    var sprintf = $.fn.bootstrapTable.utils.sprintf;
 
     var TYPE_NAME = {
         json: 'JSON',
@@ -16,7 +15,6 @@
         sql: 'SQL',
         doc: 'MS-Word',
         excel: 'MS-Excel',
-        xlsx: 'MS-Excel (OpenXML)',
         powerpoint: 'MS-Powerpoint',
         pdf: 'PDF'
     };
@@ -28,17 +26,6 @@
         exportTypes: ['json', 'xml', 'csv', 'txt', 'sql', 'excel'],
         exportOptions: {}
     });
-
-    $.extend($.fn.bootstrapTable.defaults.icons, {
-        export: 'glyphicon-export icon-share'
-    });
-
-    $.extend($.fn.bootstrapTable.locales, {
-        formatExport: function () {
-            return 'Export data';
-        }
-    });
-    $.extend($.fn.bootstrapTable.defaults, $.fn.bootstrapTable.locales);
 
     var BootstrapTable = $.fn.bootstrapTable.Constructor,
         _initToolbar = BootstrapTable.prototype.initToolbar;
@@ -56,13 +43,9 @@
             if (!$export.length) {
                 $export = $([
                     '<div class="export btn-group">',
-                        '<button class="btn' +
-                            sprintf(' btn-%s', this.options.buttonsClass) +
-                            sprintf(' btn-%s', this.options.iconSize) +
-                            ' dropdown-toggle" aria-label="export type" ' +
-                            'title="' + this.options.formatExport() + '" ' +
+                        '<button class="btn btn-default dropdown-toggle" ' +
                             'data-toggle="dropdown" type="button">',
-                            sprintf('<i class="%s %s"></i> ', this.options.iconsPrefix, this.options.icons.export),
+                            '<i class="glyphicon glyphicon-export icon-share"></i> ',
                             '<span class="caret"></span>',
                         '</button>',
                         '<ul class="dropdown-menu" role="menu">',
@@ -82,7 +65,7 @@
                 }
                 $.each(exportTypes, function (i, type) {
                     if (TYPE_NAME.hasOwnProperty(type)) {
-                        $menu.append(['<li role="menuitem" data-type="' + type + '">',
+                        $menu.append(['<li data-type="' + type + '">',
                                 '<a href="javascript:void(0)">',
                                     TYPE_NAME[type],
                                 '</a>',
@@ -93,45 +76,14 @@
                 $menu.find('li').click(function () {
                     var type = $(this).data('type'),
                         doExport = function () {
-                            
-                            if (!!that.options.exportFooter) {
-                                var data = that.getData();
-                                var $footerRow = that.$tableFooter.find("tr").first();
-
-                                var footerData = { };
-                                var footerHtml = [];
-
-                                $.each($footerRow.children(), function (index, footerCell) {
-                                    
-                                    var footerCellHtml = $(footerCell).children(".th-inner").first().html();
-                                    footerData[that.columns[index].field] = footerCellHtml == '&nbsp;' ? null : footerCellHtml;
-
-                                    // grab footer cell text into cell index-based array
-                                    footerHtml.push(footerCellHtml);
-                                });
-
-                                that.append(footerData);
-
-                                var $lastTableRow = that.$body.children().last();
-
-                                $.each($lastTableRow.children(), function (index, lastTableRowCell) {
-
-                                    $(lastTableRowCell).html(footerHtml[index]);
-                                });
-                            }
-                            
                             that.$el.tableExport($.extend({}, that.options.exportOptions, {
                                 type: type,
                                 escape: false
                             }));
-                            
-                            if (!!that.options.exportFooter) {
-                                that.load(data);
-                            }
                         };
 
                     if (that.options.exportDataType === 'all' && that.options.pagination) {
-                        that.$el.one(that.options.sidePagination === 'server' ? 'post-body.bs.table' : 'page-change.bs.table', function () {
+                        that.$el.one('load-success.bs.table page-change.bs.table', function () {
                             doExport();
                             that.togglePagination();
                         });
@@ -139,15 +91,6 @@
                     } else if (that.options.exportDataType === 'selected') {
                         var data = that.getData(),
                             selectedData = that.getAllSelections();
-
-                        // Quick fix #2220
-                        if (that.options.sidePagination === 'server') {
-                            data = {total: that.options.totalRows};
-                            data[that.options.dataField] = that.getData();
-
-                            selectedData = {total: that.options.totalRows};
-                            selectedData[that.options.dataField] = that.getAllSelections();
-                        }
 
                         that.load(selectedData);
                         doExport();

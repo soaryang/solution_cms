@@ -1,8 +1,7 @@
 /**
  * @author Nadim Basalamah <dimbslmh@gmail.com>
- * @version: v1.1.0
+ * @version: v1.0.0
  * https://github.com/dimbslmh/bootstrap-table/tree/master/src/extensions/multiple-sort/bootstrap-table-multiple-sort.js
- * Modification: ErwannNevou <https://github.com/ErwannNevou>
  */
 
 (function($) {
@@ -10,17 +9,22 @@
 
     var isSingleSort = false;
 
+    var sort_order = {
+        asc: 'Ascending',
+        desc: 'Descending'
+    };
+
     var showSortModal = function(that) {
-        var _selector = that.sortModalSelector,
-            _id = '#' + _selector;
+        var _selector = that.$sortModal.selector,
+            _id = _selector.substr(1);
 
         if (!$(_id).hasClass("modal")) {
-            var sModal = '  <div class="modal fade" id="' + _selector + '" tabindex="-1" role="dialog" aria-labelledby="' + _selector + 'Label" aria-hidden="true">';
+            var sModal = '  <div class="modal fade" id="' + _id + '" tabindex="-1" role="dialog" aria-labelledby="' + _id + 'Label" aria-hidden="true">';
             sModal += '         <div class="modal-dialog">';
             sModal += '             <div class="modal-content">';
             sModal += '                 <div class="modal-header">';
             sModal += '                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
-            sModal += '                     <h4 class="modal-title" id="' + _selector + 'Label">' + that.options.formatMultipleSort() + '</h4>';
+            sModal += '                     <h4 class="modal-title" id="' + _id + 'Label">' + that.options.formatMultipleSort() + '</h4>';
             sModal += '                 </div>';
             sModal += '                 <div class="modal-body">';
             sModal += '                     <div class="bootstrap-table">';
@@ -54,10 +58,10 @@
             sModal += '         </div>';
             sModal += '     </div>';
 
-            $('body').append($(sModal));
+            $("body").append($(sModal));
 
-            that.$sortModal = $(_id);
-            var $rows = that.$sortModal.find('tbody > tr');
+            that.$sortModal = $(_selector);
+            var $rows = that.$sortModal.find("tbody > tr");
 
             that.$sortModal.off('click', '#add').on('click', '#add', function() {
                 var total = that.$sortModal.find('.multi-sort-name:first option').length,
@@ -82,7 +86,7 @@
             });
 
             that.$sortModal.off('click', '.btn-primary').on('click', '.btn-primary', function() {
-                var $rows = that.$sortModal.find('tbody > tr'),
+                var $rows = that.$sortModal.find("tbody > tr"),
                     $alert = that.$sortModal.find('div.alert'),
                     fields = [],
                     results = [];
@@ -119,22 +123,9 @@
                         $($alert).remove();
                     }
 
-                    that.$sortModal.modal('hide');
-                    that.options.sortName = '';
-
-                    if (that.options.sidePagination === 'server') {
-
-                        that.options.queryParams = function(params) {
-                            params.multiSort = that.options.sortPriority;
-                            return params;
-                        };
-
-                        that.initServer(that.options.silentSort);
-                        return;
-                    }
-
+                    that.options.sortName = "";
                     that.onMultipleSort();
-
+                    that.$sortModal.modal('hide');
                 }
             });
 
@@ -161,11 +152,8 @@
         }
     };
 
-    $.fn.bootstrapTable.methods.push('multipleSort');
-
     $.extend($.fn.bootstrapTable.defaults, {
         showMultiSort: false,
-        showMultiSortButton: true,
         sortPriority: null,
         onMultipleSort: function() {
             return false;
@@ -187,40 +175,34 @@
             return 'Multiple Sort';
         },
         formatAddLevel: function() {
-            return 'Add Level';
+            return "Add Level";
         },
         formatDeleteLevel: function() {
-            return 'Delete Level';
+            return "Delete Level";
         },
         formatColumn: function() {
-            return 'Column';
+            return "Column";
         },
         formatOrder: function() {
-            return 'Order';
+            return "Order";
         },
         formatSortBy: function() {
-            return 'Sort by';
+            return "Sort by";
         },
         formatThenBy: function() {
-            return 'Then by';
+            return "Then by";
         },
         formatSort: function() {
-            return 'Sort';
+            return "Sort";
         },
         formatCancel: function() {
-            return 'Cancel';
+            return "Cancel";
         },
         formatDuplicateAlertTitle: function() {
-            return 'Duplicate(s) detected!';
+            return "Duplicate(s) detected!";
         },
         formatDuplicateAlertDescription: function() {
-            return 'Please remove or change any duplicate column.';
-        },
-        formatSortOrders: function() {
-            return {
-                asc: 'Ascending',
-                desc: 'Descending'
-            };
+            return "Please remove or change any duplicate column.";
         }
     });
 
@@ -232,10 +214,8 @@
     BootstrapTable.prototype.initToolbar = function() {
         this.showToolbar = true;
         var that = this,
-            sortModalSelector = 'sortModal_' + this.$el.attr('id'),
-            sortModalId = '#' + sortModalSelector;
+            sortModalId = '#sortModal_' + this.$el.attr('id');
         this.$sortModal = $(sortModalId);
-        this.sortModalSelector = sortModalSelector;
 
         _initToolbar.apply(this, Array.prototype.slice.apply(arguments));
 
@@ -243,7 +223,7 @@
             var $btnGroup = this.$toolbar.find('>.btn-group').first(),
                 $multiSortBtn = this.$toolbar.find('div.multi-sort');
 
-            if (!$multiSortBtn.length && this.options.showMultiSortButton) {
+            if (!$multiSortBtn.length) {
                 $multiSortBtn = '  <button class="multi-sort btn btn-default' + (this.options.iconSize === undefined ? '' : ' btn-' + this.options.iconSize) + '" type="button" data-toggle="modal" data-target="' + sortModalId + '" title="' + this.options.formatMultipleSort() + '">';
                 $multiSortBtn += '     <i class="' + this.options.iconsPrefix + ' ' + this.options.icons.sort + '"></i>';
                 $multiSortBtn += '</button>';
@@ -262,7 +242,7 @@
             });
 
             this.$el.on('load-success.bs.table', function() {
-                if (!isSingleSort && that.options.sortPriority !== null && typeof that.options.sortPriority === 'object' && that.options.sidePagination !== 'server') {
+                if (!isSingleSort && that.options.sortPriority !== null && typeof that.options.sortPriority === 'object') {
                     that.onMultipleSort();
                 }
             });
@@ -284,13 +264,6 @@
                     that.assignSortableArrows();
                 }
             });
-        }
-    };
-
-    BootstrapTable.prototype.multipleSort = function() {
-        var that = this;
-        if (!isSingleSort && that.options.sortPriority !== null && typeof that.options.sortPriority === 'object' && that.options.sidePagination !== 'server') {
-            that.onMultipleSort();
         }
     };
 
@@ -350,19 +323,19 @@
                 .append($('<td>').text(text))
                 .append($('<td>').append($('<select class="form-control multi-sort-name">')))
                 .append($('<td>').append($('<select class="form-control multi-sort-order">')))
-            );
+        );
 
         var $multiSortName = this.$sortModal.find('.multi-sort-name').last(),
             $multiSortOrder = this.$sortModal.find('.multi-sort-order').last();
 
-        $.each(this.columns, function(i, column) {
+        $.each(this.columns, function (i, column) {
             if (column.sortable === false || column.visible === false) {
                 return true;
             }
             $multiSortName.append('<option value="' + column.field + '">' + column.title + '</option>');
         });
 
-        $.each(this.options.formatSortOrders(), function(value, order) {
+        $.each(sort_order, function(value, order) {
             $multiSortOrder.append('<option value="' + value + '">' + order + '</option>');
         });
 

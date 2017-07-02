@@ -20,7 +20,7 @@ var screenColumnsArray =[
 var screenTableUrl = '/v1/api/admin/question/page';
 var tagId;
 var screenQueryObject = {
-    pageSize: 20
+    pageSize: 30
 };
 
 function del(id) {
@@ -34,7 +34,7 @@ function del(id) {
             alert("Connection error");
         },
         success: function(data) {
-            $.initTable('tableList', screenColumnsArray, screenQueryObject, screenTableUrl,function(){});
+            $.initTable('tableList', screenColumnsArray, screenQueryObject, screenTableUrl);
         }
     });
 }
@@ -44,7 +44,7 @@ var initPage =function () {
     var paramArray =  url.split("&");
     tagId = paramArray[0].substr(url.indexOf('=') + 1);
     screenQueryObject.tagId = tagId;
-    $.initTable('tableList', screenColumnsArray, screenQueryObject, screenTableUrl,function(){});
+    $.initTable('tableList', screenColumnsArray, screenQueryObject, screenTableUrl);
 }
 initPage();
 

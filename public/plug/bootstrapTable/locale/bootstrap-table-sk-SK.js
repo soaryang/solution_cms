@@ -19,10 +19,7 @@
             return 'Vyhľadávanie';
         },
         formatNoMatches: function () {
-            return 'Nenájdená žiadna vyhovujúca položka';
-        },
-        formatPaginationSwitch: function () {
-            return 'Skry/Zobraz stránkovanie';
+            return 'Nenájdená žiadne vyhovujúca položka';
         },
         formatRefresh: function () {
             return 'Obnoviť';
@@ -32,15 +29,6 @@
         },
         formatColumns: function () {
             return 'Stĺpce';
-        },
-        formatAllRows: function () {
-            return 'Všetky';
-        },
-        formatExport: function () {
-            return 'Exportuj dáta';
-        },
-        formatClearFilters: function () {
-            return 'Odstráň filtre';
         }
     };
 
