@@ -1,27 +1,3 @@
-var availableTags = [
-    "ActionScript",
-    "AppleScript",
-    "Asp",
-    "BASIC",
-    "C",
-    "C++",
-    "Clojure",
-    "COBOL",
-    "ColdFusion",
-    "Erlang",
-    "Fortran",
-    "Groovy",
-    "Haskell",
-    "Java",
-    "JavaScript",
-    "Lisp",
-    "Perl",
-    "PHP",
-    "Python",
-    "Ruby",
-    "Scala",
-    "Scheme"
-];
 $( "#tagName" ).autocomplete({
     //source: availableTags
     source: function(request, response){
@@ -68,6 +44,7 @@ var saveQuestion=function() {
         },
         success: function(data) {
             //window.location.href="跳转页面"
+            window.location.href="/question/questionList";
         }
     });
 }

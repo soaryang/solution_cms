@@ -5,6 +5,11 @@ var screenColumnsArray =[
         align: 'center'
     },
     {
+        field: 'tagName',
+        title: '名称',
+        align: 'center'
+    },
+    {
         field: 'id', title: '操作',
         align: 'center',
         formatter: function (value, row, index) {
@@ -40,9 +45,15 @@ function del(id) {
 }
 
 var initPage =function () {
-    var url = location.href.substring(location.href.indexOf("?")+1);
-    var paramArray =  url.split("&");
-    tagId = paramArray[0].substr(url.indexOf('=') + 1);
+    var paramIndex = location.href.indexOf("?");
+    if(paramIndex!=-1){
+        var url = location.href.substring(paramIndex+1);
+        var paramArray =  url.split("&");
+        tagId = paramArray[0].substr(url.indexOf('=') + 1);
+    }else{
+        tagId = '';
+    }
+
     screenQueryObject.tagId = tagId;
     $.initTable('tableList', screenColumnsArray, screenQueryObject, screenTableUrl);
 }
