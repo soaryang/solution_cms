@@ -1,6 +1,6 @@
 var  initMarkdownplug =function (id) {
     return editormd(id, {
-        width   : "90%",
+        //width   : "90%",
         height  : 640,
         syncScrolling : "single",
         path    : "/plug/markdown/lib/",

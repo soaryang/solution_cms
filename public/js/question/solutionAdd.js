@@ -8,7 +8,7 @@ var init=function() {
 }
 function doShowContent() {
     //alert(toMarkdown(testEditor.getMarkdown(testEditor.getMarkdown())));
-    alert(toMarkdown(testEditor.getMarkdown()));
+    //alert(toMarkdown(testEditor.getMarkdown()));
     $.ajax({
         type: "POST",
         url:"/v1/api/admin/solution/save",
@@ -18,7 +18,7 @@ function doShowContent() {
             alert("Connection error");
         },
         success: function(data) {
-
+            window.history.back(-1);
         }
     });
 }

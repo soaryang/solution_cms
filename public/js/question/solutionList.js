@@ -1,4 +1,3 @@
-var testEditor;
 var screenTableUrl = "/v1/api/admin/solution/page"
 var screenQueryObject = {
     pageSize: 20
@@ -6,17 +5,17 @@ var screenQueryObject = {
 var screenColumnsArray =[
     {
         field: 'content', title: '内容',
-        align: 'center',
+        align: 'left',
         width: '80%',
         formatter: function (value, row, index) {
-            return marked(row.content.substr(0,300));
+            return marked(row.content.substr(0,50));
         }
     },
     {
         field: 'id', title: '操作',
         align: 'center',
         formatter: function (value, row, index) {
-            var button= '<a class="btn btn-info" onclick="doEdit(\''+row.id+'\')">编辑</a>&nbsp;';
+            var button= '<a class="btn btn-info" href="/question/solutionEdit?id='+row.id+'">编辑</a>&nbsp;';
             button +='<a class="btn btn-danger" onclick="del(\''+row.id+'\')">删除</a>&nbsp;';
             return button
 
@@ -62,6 +61,6 @@ var initTable=function() {
 
     $.initTable('tableList', screenColumnsArray, screenQueryObject, screenTableUrl,function(){});
 
-    testEditor = initMarkdownplug('txtblogcontent');
+    //testEditor = initMarkdownplug('txtblogcontent');
 }
 initTable();
