@@ -1,10 +1,10 @@
 var screenColumnsArray =[
-    {
+    /*{
         field: 'id',
         title: '编号',
         align: 'center',
         width:'20%'
-    },
+    },*/
     {
         field: 'name',
         title: '名称',
@@ -18,7 +18,7 @@ var screenColumnsArray =[
         formatter: function (value, row, index) {
             var button = '<a class="btn btn-info">编辑</a>&nbsp;';
             button += '<a class="btn btn-info" href="/question/questionList?tagId='+row.id+'">列表</a>&nbsp;';
-            
+
             if(row.useStatus==1){
                 button += '<a class="btn btn-danger" href="javascript:void(0);" onclick="setUseStatus(\''+row.id+'\',2)">禁用</a>&nbsp;';
             }else{
