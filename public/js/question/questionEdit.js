@@ -1,13 +1,15 @@
-var  tagId;
+var  questionId;
 function init(){
     var url = location.href.substring(location.href.indexOf("?")+1);
     var paramArray =  url.split("&");
-    tagId = paramArray[0].substr(url.indexOf('=') + 1);
-    var url = "/v1/api/admin/tag/findById?id="+tagId;
+    questionId = paramArray[0].substr(url.indexOf('=') + 1);
+    var url = "/v1/api/admin/question/findById?id="+questionId;
     $.danmuAjax(url,'GET','json',{},function (data) {
         if(data.code='2000'){
-            $("#tagId").val(data.data.id);
-            $("#tagName").val(data.data.name);
+            $("#tagId").val(data.data.tagId);
+            $("#tagName").val(data.data.tagName);
+            $("#name").val(data.data.name);
+            $("#questionId").val(data.data.id);
         }
     },function (error) {
 
@@ -65,4 +67,5 @@ var saveQuestion=function() {
         }
     });
 }
+
 init();

@@ -28,6 +28,11 @@ router.get('/questionAdd', function(req, res, next) {
     res.render('question/questionAdd', { title: 'Express' });
 });
 
+router.get('/questionEdit', function(req, res, next) {
+    //res.send('respond with a resource');
+    res.render('question/questionEdit', { title: 'Express' });
+});
+
 
 router.get('/solutionList', function(req, res, next) {
     //res.send('respond with a resource');
