@@ -69,7 +69,7 @@ function initRole() {
             var array = data.data;
             if(array!=null && array.length>0){
                 for(var i=0; i<array.length; i++){
-                    roleSelect.appendChild('<option value="'+array[i].id+'">'+array[i].value+'</option>')
+                    roleSelect.appendChild('<option value="'+array[i].id+'">'+array[i].name+'</option>')
                 }
             }
         }
