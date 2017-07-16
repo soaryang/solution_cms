@@ -41,7 +41,7 @@ var screenColumnsArray =[
             var array = row.roleViewList;
             if(array!=null && array.length>0){
                 for(var i=0; i<array.length; i++){
-                    $("#roleSelect").append('<option value="'+array[i].id+'">'+array[i].name+'</option>')
+                    select +='<option value="'+array[i].id+'">'+array[i].name+'</option>';
                 }
             }
             select += "</select>";
