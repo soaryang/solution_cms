@@ -37,10 +37,7 @@ var screenColumnsArray =[
         width:'20%',
         formatter: function (value, row, index) {
             var select = "";
-            select += "<select style='width: 100px;'onchange='changRole()'>";
-            select += "<option value='0'>普通用户</option>"
-            select += "<option value='1'>超级管理员</option>"
-            select += "<option value='2'>管理员</option>"
+            select += "<select style='width: 100px;' id='roleSelect' onchange='changRole()'>";
             select += "</select>";
             return select;
         }
@@ -63,13 +60,35 @@ var screenQueryObject = {
     pageSize: 20,
     subscribeState:$("#subscribeState").val()
 };
-$.initTable('tableList', screenColumnsArray, screenQueryObject, screenTableUrl);
+
+function initRole() {
+    var url = "/v1/api/admin/role/findAll";
+    var roleSelect = $("#roleSelect");
+    $.danmuAjax(url, 'get','json',{}, function (data) {
+        if(data.code==200){
+            var array = data.data;
+            if(array!=null && array.length>0){
+                for(var i=0; i<array.length; i++){
+                    roleSelect.appendChild('<option value="'+array[i].id+'">'+array[i].value+'</option>')
+                }
+            }
+        }
+    },function (data) {
+
+    });
+}
+
+function init() {
+    initRole();
+    $.initTable('tableList', screenColumnsArray, screenQueryObject, screenTableUrl);
+}
+
 
 $('.search').click(function () {
     screenQueryObject.subscribeState =$("#subscribeState").val();
     $.initTable('tableList', screenColumnsArray, screenQueryObject, screenTableUrl);
 })
-
+init();
 function changRole(){
 
 }
