@@ -44,6 +44,11 @@ var screenColumnsArray =[
 
 var screenTableUrl = '/v1/api/admin/user/page';
 var screenQueryObject = {
-    pageSize: 20
+    pageSize: 20,
+    subscribeState:$("#subscribeState").val()
 };
 $.initTable('tableList', screenColumnsArray, screenQueryObject, screenTableUrl);
+
+$('.search').click(function () {
+    $.initTable('tableList', screenColumnsArray, screenQueryObject, screenTableUrl);
+})
