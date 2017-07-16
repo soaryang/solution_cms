@@ -18,6 +18,19 @@ var screenColumnsArray =[
         width:'20%'
     },
     {
+        field: 'subscribeState',
+        title: '操作',
+        align: 'center',
+        formatter: function (value, row, index) {
+            if (row.subscribeState == 0) {
+                return "订阅";
+            }else if (row.subscribeState == 1) {
+                return "取消订阅";
+            }
+            return "其他";
+        }
+    },
+    {
         field: '',
         title: '操作',
         align: 'center',
