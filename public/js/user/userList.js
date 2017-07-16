@@ -32,6 +32,20 @@ var screenColumnsArray =[
     },
     {
         field: '',
+        title: '权限分配',
+        align: 'center',
+        formatter: function (value, row, index) {
+            var select = "";
+            select += "<select>";
+            select += "<option value='0'>普通用户</option>"
+            select += "<option value='1'>超级管理员</option>"
+            select += "<option value='2'>管理员</option>"
+            select += "</select>";
+            return select;
+        }
+    },
+    {
+        field: '',
         title: '操作',
         align: 'center',
         formatter: function (value, row, index) {
