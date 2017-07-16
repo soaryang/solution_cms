@@ -37,7 +37,7 @@ var screenColumnsArray =[
         width:'20%',
         formatter: function (value, row, index) {
             var select = "";
-            select += "<select style='width: 100px;'>";
+            select += "<select style='width: 100px;'onchange='changRole()'>";
             select += "<option value='0'>普通用户</option>"
             select += "<option value='1'>超级管理员</option>"
             select += "<option value='2'>管理员</option>"
@@ -69,3 +69,7 @@ $('.search').click(function () {
     screenQueryObject.subscribeState =$("#subscribeState").val();
     $.initTable('tableList', screenColumnsArray, screenQueryObject, screenTableUrl);
 })
+
+function changRole(){
+
+}
