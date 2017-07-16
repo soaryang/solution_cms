@@ -60,6 +60,7 @@ var screenColumnsArray =[
         width:'20%',
         formatter: function (value, row, index) {
             var button = '';
+            button += '<a class="btn btn-info" onclick="editUser(\''+row.id+'\')">编辑</a>';
             button += '<a class="btn btn-danger">删除</a>';
             return button;
         }
@@ -71,6 +72,10 @@ var screenQueryObject = {
     pageSize: 20,
     subscribeState:$("#subscribeState").val()
 };
+
+var editUser = function (id) {
+    window.location="/user/userEdit?id="+id;
+}
 
 function initRole() {
     var url = "/v1/api/admin/role/findAll";

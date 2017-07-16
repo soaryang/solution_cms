@@ -10,6 +10,10 @@ router.get('/userList', function(req, res, next) {
     res.render('user/userList', { title: 'Express' });
 });
 
+router.get('/userEdit', function(req, res, next) {
+    res.render('user/userEdit', { title: 'Express' });
+});
+
 router.get('/roleList', function(req, res, next) {
     res.render('user/roleList', { title: 'Express' });
 });
