@@ -11,6 +11,7 @@ var init = function () {
         var repData = data.data;
         $("#id").val(repData.id);
         $("#openId").val(repData.openId);
+        $("#name").val(repData.name);
     },function (data) {
 
     });
