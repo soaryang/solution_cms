@@ -12,20 +12,17 @@
                         <div class="widget-content">
                             <div class="tab-content">
                                 <div class="tab-pane active" id="formcontrols">
-                                    <form id="edit-profile" class="form-horizontal">
-                                        <fieldset>
-
+                                    <form id="mainForm" class="form-horizontal">
                                             <div class="control-group" style="margin-top: 18px;">
-                                                <label class="control-label" for="tagName">tag名称</label>
+                                                <label class="control-label" for="name">权限:</label>
                                                 <div class="controls">
-                                                    <input type="text" class="span4" id="tagName" maxlength="10" >
+                                                    <input type="text" class="span4" id="name" name="name" maxlength="20" >
                                                 </div> <!-- /controls -->
                                             </div>
 
                                             <div class="form-actions">
-                                                <a class="btn btn-primary" onclick="saveAddress();">保存</a> <a class="btn" onclick="returnAddressList();">返回列表</a>
+                                                <a class="btn btn-primary" onclick="saveRole();">保存</a> <a class="btn" onclick="returnAddressList();">返回列表</a>
                                             </div>
-                                        </fieldset>
                                     </form>
                                 </div>
 
@@ -43,4 +40,5 @@
     <!-- /main-inner -->
 </div>
 <!-- /main -->
+<script src="/js/user/roleAdd.js"></script>
 <%include ../common/footer.html%>
