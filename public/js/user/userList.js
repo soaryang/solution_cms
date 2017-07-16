@@ -50,5 +50,6 @@ var screenQueryObject = {
 $.initTable('tableList', screenColumnsArray, screenQueryObject, screenTableUrl);
 
 $('.search').click(function () {
+    screenQueryObject.subscribeState =$("#subscribeState").val();
     $.initTable('tableList', screenColumnsArray, screenQueryObject, screenTableUrl);
 })
