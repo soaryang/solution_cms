@@ -63,13 +63,13 @@ var screenQueryObject = {
 
 function initRole() {
     var url = "/v1/api/admin/role/findAll";
-    var roleSelect = $("#roleSelect");
+    //var roleSelect = $("#roleSelect");
     $.danmuAjax(url, 'get','json',{}, function (data) {
         if(data.code==200){
             var array = data.data;
             if(array!=null && array.length>0){
                 for(var i=0; i<array.length; i++){
-                    roleSelect.appendChild('<option value="'+array[i].id+'">'+array[i].name+'</option>')
+                    $("#roleSelect").appendChild('<option value="'+array[i].id+'">'+array[i].name+'</option>')
                 }
             }
         }
