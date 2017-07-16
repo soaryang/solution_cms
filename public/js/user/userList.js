@@ -39,9 +39,14 @@ var screenColumnsArray =[
             var select = "";
             select += '<select style="width: 100px;" id="roleSelect" onchange="changRole(\''+row.id+'\')">';
             var array = row.roleViewList;
+            var roleId = row.roleId;
             if(array!=null && array.length>0){
                 for(var i=0; i<array.length; i++){
-                    select +='<option value="'+array[i].id+'">'+array[i].name+'</option>';
+                    if(roleId==array[i].id){
+                        select +='<option value="'+array[i].id+'" selected="selected">'+array[i].name+'</option>';
+                    }else{
+                        select +='<option value="'+array[i].id+'">'+array[i].name+'</option>';
+                    }
                 }
             }
             select += "</select>";
