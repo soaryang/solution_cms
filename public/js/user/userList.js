@@ -38,6 +38,12 @@ var screenColumnsArray =[
         formatter: function (value, row, index) {
             var select = "";
             select += "<select style='width: 100px;' id='roleSelect' onchange='changRole()'>";
+            var array = row.roleViewList;
+            if(array!=null && array.length>0){
+                for(var i=0; i<array.length; i++){
+                    $("#roleSelect").append('<option value="'+array[i].id+'">'+array[i].name+'</option>')
+                }
+            }
             select += "</select>";
             return select;
         }
@@ -79,7 +85,6 @@ function initRole() {
 }
 
 function init() {
-    initRole();
     $.initTable('tableList', screenColumnsArray, screenQueryObject, screenTableUrl);
 }
 
