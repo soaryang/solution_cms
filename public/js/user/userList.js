@@ -74,6 +74,7 @@ var screenQueryObject = {
 };
 
 var editUser = function (id) {
+    alert(id);
     window.location="/user/userEdit?id="+id;
 }
 
