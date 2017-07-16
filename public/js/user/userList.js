@@ -37,7 +37,7 @@ var screenColumnsArray =[
         width:'20%',
         formatter: function (value, row, index) {
             var select = "";
-            select += "<select style='width: 100px;' id='roleSelect' onchange='changRole()'>";
+            select += '<select style="width: 100px;" id="roleSelect" onchange="changRole(\''+row.id+'\')">';
             var array = row.roleViewList;
             if(array!=null && array.length>0){
                 for(var i=0; i<array.length; i++){
@@ -94,6 +94,13 @@ $('.search').click(function () {
     $.initTable('tableList', screenColumnsArray, screenQueryObject, screenTableUrl);
 })
 init();
-function changRole(){
+function changRole(id){
+    var url = '/v1/api/admin/userRole'
+    $.danmuAjax(url, 'get','json',{'userId':id,'roleId':$("#roleSelect").val()}, function (data) {
+        if(data.code==200){
 
+        }
+    },function (data) {
+
+    });
 }
