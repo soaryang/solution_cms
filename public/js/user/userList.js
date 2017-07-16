@@ -49,6 +49,7 @@ var screenColumnsArray =[
         field: '',
         title: '操作',
         align: 'center',
+        width:'20%',
         formatter: function (value, row, index) {
             var button = '';
             button += '<a class="btn btn-danger">删除</a>';
