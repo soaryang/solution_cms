@@ -95,7 +95,7 @@ $('.search').click(function () {
 })
 init();
 function changRole(id){
-    var url = '/v1/api/admin/userRole'
+    var url = '/v1/api/admin/userRole/setRole'
     $.danmuAjax(url, 'get','json',{'userId':id,'roleId':$("#roleSelect").val()}, function (data) {
         if(data.code==200){
 
