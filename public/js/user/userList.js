@@ -34,6 +34,7 @@ var screenColumnsArray =[
         field: '',
         title: '权限分配',
         align: 'center',
+        width:'20%',
         formatter: function (value, row, index) {
             var select = "";
             select += "<select style='width: 100px;'>";
