@@ -9,7 +9,7 @@ var saveRole=function() {
         },
         success: function(data) {
             //window.location.href="跳转页面"
-            window.location.href="/user/roleList";
+            window.location.href="/admin/user/roleList";
         }
     });
 }

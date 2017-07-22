@@ -30,9 +30,9 @@ var screenQueryObject = {
 
 function jumpToAddPage() {
     if(tagId!=null && tagId!=''){
-        window.location="/question/questionAdd?tagId="+tagId;
+        window.location="/admin/question/questionAdd?tagId="+tagId;
     }else{
-        window.location="/question/questionAdd";
+        window.location="/admin/question/questionAdd";
     }
 
 }

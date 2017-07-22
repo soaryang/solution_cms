@@ -27,7 +27,7 @@ var saveEdit=function() {
         },
         success: function(data) {
             //window.location.href="跳转页面"
-            window.location.href="/user/userList";
+            window.location.href="/admin/user/userList";
         }
     });
 }

@@ -36,7 +36,7 @@
                         }
                     }
                 },
-                formatNoMatches:function(){
+                formatNoMatches:function(status){
                     if( null != formatNoMatches && ''!=formatNoMatches){
                         return formatNoMatches;
                     }else{
@@ -45,14 +45,14 @@
 
                 },
                 onLoadError:function(status){
-                    /*if (status == 444) {
+                    if (status == 444 || status== 401) {
                         window.location = '/login';
                         return;
                     }
                     if (status == 443) {
                         window.location = '/film/danmuCheck';
                         return;
-                    }*/
+                    }
                 }
 
             });

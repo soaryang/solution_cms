@@ -36,23 +36,25 @@ var authorize = function(req, res, next){
 
 app.use(function(req,res,next){
     console.log('Request URL:', req.originalUrl);
-    if("/login" != req.originalUrl){
+    console.log("log:"+req.host);
+    if(req.originalUrl.indexOf('/admin')!=-1){
         authorize(req,res,next);
+    }else if("/login" == req.originalUrl){
+        next();
     }else{
         next();
     }
-
 });
 
 app.use('/', index);
-app.use('/user', users);
-app.use('/question', question);
+app.use('/admin/user', users);
+app.use('/admin/question', question);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
-    res.render('404');
+    res.render('login');
 });
 
 // error handler
