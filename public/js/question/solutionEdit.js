@@ -23,7 +23,9 @@ function doShowContent(){
             alert("Connection error");
         },
         success: function(data) {
-            $("#container").val(data.data.content);
+            var message = data.data.content;
+            console.log(message)
+            $("#container").val(message);
         }
     });
 }
