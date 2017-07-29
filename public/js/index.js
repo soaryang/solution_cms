@@ -33,7 +33,7 @@ var init = function (index) {
                 }
 
                 var pageHtml='<ul class="pagination pagination-lg">';
-                if(i==1){
+                if(index==1){
                     pageHtml+=' <li><a href="#" onclick="init('+1+')" disabled="disabled">&laquo;</a></li>';
                 }else{
                     pageHtml+=' <li><a href="#" onclick="init('+1+')" >&laquo;</a></li>';
