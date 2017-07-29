@@ -1,13 +1,14 @@
 
-var init = function () {
+var init = function (index,pageSize) {
     var url ="/cachedata/questioncache.json";
     $.commonAjax(url, 'get','json',{}, function (data) {
         console.log(data);
         var html='';
         if(data!=null){
             var count = data.count;
-            var array = data.questionList;
-            if(array!=null){
+            var questionArray = data.questionList;
+            if(questionArray!=null){
+                var array =questionArray.slice((index-1)*pageSize,index*pageSize)
                 for(var i=0; i<array.length; i++){
                     var questionObject = array[i];
                     html+='<div style="display: inline-block; border-bottom:  1px dashed #ddd;width: 100%;">';
@@ -25,18 +26,18 @@ var init = function () {
                     html+='</div>';
                 }
                 var page = 0;
-                if(count%10==0){
-                    page  = count/10
+                if(count%pageSize==0){
+                    page  = count/pageSize;
                 }else{
-                    page  = count/10 +1;
+                    page  = count/pageSize +1;
                 }
 
                 var pageHtml='<ul class="pagination pagination-lg">';
-                pageHtml+=' <li><a href="#">&laquo;</a></li>';
+                pageHtml+=' <li><a href="#" onclick="init('+1+')">&laquo;</a></li>';
                 for(var i=1; i<= page; i++){
-                    pageHtml+=' <li><a href="#">'+i+'</a></li>';
+                    pageHtml+=' <li><a href="#" onclick="init('+i+')">'+i+'</a></li>';
                 }
-                pageHtml+=' <li><a href="#">&raquo;</a></li>';
+                pageHtml+=' <li><a href="#" onclick="init('+page+')">&raquo;</a></li>';
                 pageHtml+='</ul>';
                 $("#pagePlugId").html(pageHtml);
                 $("#questionList").html(html);
@@ -50,4 +51,4 @@ var init = function () {
 
     });
 }
-init();
+init(1,10);
