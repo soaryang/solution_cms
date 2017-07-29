@@ -37,7 +37,7 @@ var init = function (index) {
                 for(var i=1; i<= page; i++){
                     pageHtml+=' <li><a href="#" onclick="init('+i+')">'+i+'</a></li>';
                 }
-                pageHtml+=' <li><a href="#" onclick="init('+page+')">&raquo;</a></li>';
+                pageHtml+=' <li><a href="#" onclick="init('+parseInt(page)+')">&raquo;</a></li>';
                 pageHtml+='</ul>';
                 $("#pagePlugId").html(pageHtml);
                 $("#questionList").html(html);
