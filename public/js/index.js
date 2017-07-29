@@ -1,5 +1,5 @@
-
-var init = function (index,pageSize) {
+var pageSize = 10;
+var init = function (index) {
     var url ="/cachedata/questioncache.json";
     $.commonAjax(url, 'get','json',{}, function (data) {
         console.log(data);
@@ -51,4 +51,4 @@ var init = function (index,pageSize) {
 
     });
 }
-init(1,10);
+init(1);
