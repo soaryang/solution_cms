@@ -3,7 +3,6 @@ var init = function () {
     var url ="/cachedata/questioncache.json";
     $.commonAjax(url, 'get','json',{}, function (data) {
         console.log(data);
-        var data = "";
         if(data!=null){
             for(var i=0; i<data.length; i++){
                 var questionObject = data[i];
