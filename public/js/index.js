@@ -14,7 +14,7 @@ var init = function (index) {
                     html+='<div style="display: inline-block; border-bottom:  1px dashed #ddd;width: 100%;">';
                     html+='<div style="float: left;margin-top: 10px;">';
                     html+='<a class="tag" style=" background-color: rgb(255,236,244); width: 50px; height: 50px;"><span>关注</span><br/><span>50</span></a>';
-                    html+='<a class="tag" style=" background-color: rgb(255,236,244); width: 50px; height: 50px;"><span>回答</span><br/><span>50</span></a>';
+                    html+='<a class="tag" style=" background-color: rgb(255,236,244); width: 50px; height: 50px;"><span>回答</span><br/><span>'+questionObject.solutionCount+'</span></a>';
                     html+='<a class="tag" style=" background-color: rgb(255,236,244); width: 50px; height: 50px;"><span>访问</span><br/><span>50</span></a>';
                     html+='</div>';
                     html+='<div style="float: left;margin-top: 10px;margin-left: 15px;">';
