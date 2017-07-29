@@ -24,6 +24,21 @@ var init = function () {
                     html+='</div>';
                     html+='</div>';
                 }
+                var page = 0;
+                if(count%10==0){
+                    page  = count/10
+                }else{
+                    page  = count/10 +1;
+                }
+
+                var pageHtml='<ul class="pagination pagination-lg">';
+                pageHtml+=' <li><a href="#">&laquo;</a></li>';
+                for(var i=1; i<= page; i++){
+                    pageHtml+=' <li><a href="#">'+i+'</a></li>';
+                }
+                pageHtml+=' <li><a href="#">&raquo;</a></li>';
+                pageHtml+='</ul>';
+                $("#pagePlugId").html(pageHtml);
                 $("#questionList").html(html);
             }
         }else{
