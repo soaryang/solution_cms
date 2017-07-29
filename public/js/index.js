@@ -33,16 +33,23 @@ var init = function (index) {
                 }
 
                 var pageHtml='<ul class="pagination pagination-lg">';
+                if(i==1){
+                    pageHtml+=' <li><a href="#" onclick="init('+1+')" class="active">&laquo;</a></li>';
+                }else{
+                    pageHtml+=' <li><a href="#" onclick="init('+1+')" >&laquo;</a></li>';
+                }
 
                 for(var i=1; i<= page; i++){
                     if(index==i){
-                        pageHtml+=' <li><a href="#" onclick="init('+1+')" class="active">&laquo;</a></li>';
                         pageHtml+=' <li><a href="#" onclick="init('+i+')" class="active">'+i+'</a></li>';
-                    }else if(page==index){
-                        pageHtml+=' <li><a href="#" onclick="init('+parseInt(page)+')">&raquo;</a></li>';
                     }else{
                         pageHtml+=' <li><a href="#" onclick="init('+i+')">'+i+'</a></li>';
                     }
+                }
+                if(parseInt(page)==index){
+                    pageHtml+=' <li><a href="#" onclick="init('+parseInt(page)+')" class="active">&raquo;</a></li>';
+                }else{
+                    pageHtml+=' <li><a href="#" onclick="init('+parseInt(page)+')">&raquo;</a></li>';
                 }
                 pageHtml+='</ul>';
                 $("#pagePlugId").html(pageHtml);
