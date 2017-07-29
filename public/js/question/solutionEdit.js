@@ -7,7 +7,6 @@ var init=function() {
     //testEditor = initMarkdownplug('txtblogcontent');
     //testEditor = initMarkdownplug('txtblogcontent');
     //doShowContent();
-    testEditor = initMarkdownplug('txtblogcontent');
     doShowContent();
 }
 
@@ -24,7 +23,8 @@ function doShowContent(){
         },
         success: function(data) {
             var message = data.data.content;
-            console.log(message)
+            testEditor = initMarkdownplug('txtblogcontent');
+            console.log(message);
             $("#container").val(message);
         }
     });
@@ -65,5 +65,5 @@ function doEdit() {
         }
     });
 }*/
-
 init();
+
