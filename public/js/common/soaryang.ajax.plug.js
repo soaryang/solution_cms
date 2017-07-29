@@ -2,7 +2,7 @@
  * danmu.ajax.plug v1.0.0
  */
 (function ($) {
-    $.danmuAjax = function (url, method,dataType,data, success, error) {
+    $.commonAjax = function (url, method,dataType,data, success, error) {
         $.ajax({
             contentType: "application/json; charset=utf-8",
             type: method,

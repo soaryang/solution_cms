@@ -7,7 +7,7 @@ var init = function () {
     $("#id").val(id);
     var url = "/v1/api/admin/user/findUserInfo";
     //var roleSelect = $("#roleSelect");
-    $.danmuAjax(url, 'get','json',{'id':id}, function (data) {
+    $.commonAjax(url, 'get','json',{'id':id}, function (data) {
         var repData = data.data;
         $("#id").val(repData.id);
         $("#openId").val(repData.openId);

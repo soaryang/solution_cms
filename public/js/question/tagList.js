@@ -53,7 +53,7 @@ function choseUseStatus() {
 
 function setUseStatus(id,status) {
     var url = "/v1/api/admin/tag/tagUse?id="+id+"&status="+status;
-    $.danmuAjax(url, 'get','json',{}, function (data) {
+    $.commonAjax(url, 'get','json',{}, function (data) {
         $.initTable('tableList', screenColumnsArray, screenQueryObject, screenTableUrl);
     }, function (data) {
 

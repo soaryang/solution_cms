@@ -81,7 +81,7 @@ var editUser = function (id) {
 function initRole() {
     var url = "/v1/api/admin/role/findAll";
     //var roleSelect = $("#roleSelect");
-    $.danmuAjax(url, 'get','json',{}, function (data) {
+    $.commonAjax(url, 'get','json',{}, function (data) {
         if(data.code==200){
             var array = data.data;
             if(array!=null && array.length>0){
@@ -107,7 +107,7 @@ $('.search').click(function () {
 init();
 function changRole(id){
     var url = '/v1/api/admin/userRole/setRole'
-    $.danmuAjax(url, 'get','json',{'userId':id,'roleId':$("#roleSelect").val()}, function (data) {
+    $.commonAjax(url, 'get','json',{'userId':id,'roleId':$("#roleSelect").val()}, function (data) {
         if(data.code==200){
 
         }

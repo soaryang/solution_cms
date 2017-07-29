@@ -1,261 +1,116 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
     <meta charset="utf-8">
-    <title>Home</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <script src="/plug/jquery/jquery-1.12.4.min.js"></script>
-    <script src="/plug/bootstrap/js/bootstrap.js"></script>
-
-    <!-- Bootstrap styles -->
+    <title>A free web template from</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/plug/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Styles -->
-    <link rel="stylesheet" href="/css/index.css" rel="stylesheet">
-    <style>
-        .tag{
-            position: relative;
-            display: inline-block;
-            padding: .4em .5em;
-            margin: 2px 2px 2px 0;
-            font-size: 11px;
-            line-height: 1;
-            white-space: nowrap;
-            text-decoration: none;
-            text-align: center;
-            border-width: 1px;
-            border-style: solid;
-            border-radius: 0;
-            transition: all .15s ease-in-out;
-        }
-        .excerpt {
-            font-size: 12px;
-            height: 39px;
-            line-height: 14px;
-            overflow: hidden;
-            margin-bottom: 4px;
-            font-size: 12px;
-            color: #858C93;
-            padding: 0;
-        }
-        .tag-cell {
-            width: 230px;
-            border-bottom: 1px dotted #E4E6E7;
-            padding-bottom: 12px;
-            padding-right: 6px;
-            padding-top: 6px;
-            vertical-align: top;
-        }
-        .stats-row, .stats-row a, .stats-row a:visited {
-            font-size: 11px;
-            color: #3C3F44;
-        }
-        .stats-row {
-            padding-top: 4px;
-            padding-right: 8px;
-            font-family: Arial,Liberation Sans,DejaVu Sans,sans-serif;
-            font-size: 12px;
-            color: #858C93;
-        }
-         .fl {
-            float: left !important;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/common/common.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/common/tag.css" rel="stylesheet">
 </head>
-<body>
-	<div id="navbar-main"> 
-	  <!-- Fixed navbar -->
-		<div class="navbar navbar-default navbar-fixed-top" style="background-color:rgb(2,165,243)">
-            <div class="navbar-header" style="margin-left: 50px;">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#home"><i class="fa fa-location-arrow"></i> QSM</a>
-            </div>
-            <div class="container" style="width: 970px;">
 
+<body>
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar-header" style="margin-left: 50px;">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#home"><i class="fa fa-location-arrow"></i> QSM</a>
+    </div>
+    <div class="container">
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <form class="navbar-form navbar-right">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-info">搜索</button>
+                    </form>
+                </li>
+                <li class="navbar-form"><button class="btn btn-info">登陆</button>&nbsp;<button class="btn">注册</button></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="main" style="margin-top: 60px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
                 <div>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li> <a href="#contact" class="smoothScroll"> 注册</a></li>
-                        <li> <a href="#contact" class="smoothScroll"> 注册</a></li>
-                        <li> <a href="#contact" class="smoothScroll"> 注册</a></li>
-                        <li> <a href="#contact" class="smoothScroll"> 注册</a></li>
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#home" data-toggle="tab">热门</a></li>
+                        <li><a href="#ios" data-toggle="tab">最新</a></li>
+                        <li><a href="#ios" data-toggle="tab">最新解决</a></li>
+
+
+                        <li class="dropdown">
+                            <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown">Java <b
+                                    class="caret"></b></a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+                                <li><a href="#jmeter" tabindex="-1" data-toggle="tab">jmeter</a></li>
+                                <li><a href="#ejb" tabindex="-1" data-toggle="tab">ejb</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
-              <!--/.nav-collapse -->
-            </div>
-	  </div>
-	</div>
-    <div class="main">
-        <div class="container" style="width: 970px;">
-            <div class="row">
-                <div class="col-md-12 blog-main">
-                    <div class="input-group" style="text-align: center; margin-top:10px;">
-                        <input type="text" class="form-control input-lg"><span class="input-group-addon btn btn-primary">搜索</span>
+                <div id="questionList">
+                    <div style="display: inline-block; border-bottom:  1px dashed #ddd;width: 100%;">
+                        <div style="float: left;margin-top: 20px;">
+                            <a class="tag" style=" background-color: rgb(255,236,244); width: 50px; height: 50px;">
+                                <span>关注</span><br/>
+                                <span>50</span>
+                            </a>
+                            <a class="tag" style=" background-color: rgb(255,236,244); width: 50px; height: 50px;">
+                                <span>回答</span><br/>
+                                <span>50</span>
+                            </a>
+                            <a class="tag" style=" background-color: rgb(255,236,244); width: 50px; height: 50px;">
+                                <span>访问</span><br/>
+                                <span>50</span>
+                            </a>
+                        </div>
+                        <div style="float: left;margin-top: 10px;margin-left: 15px;">
+                            <h4>
+                                .<a href="http://spring4all.com/question/328">关于spring cloud构建高可用服务中心问题</a>
+                            </h4>
+                            <div>
+                                <a class="tag" style=" background-color: rgb(255,236,244);">javasript</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-			<div class="row">
-				<div class="col-md-12 blog-main">
-                    <div class="row">
-                        <!--
-                        <table >
-                            <tbody>
-                                <tr>
-                                    <td class="tag-cell">
-                                        <a class="tag" style=" background-color: rgb(255,236,244);">javasript</a>
-                                        <div style="height: 39px;overflow: hidden;font-family: Arial,Liberation Sans,DejaVu Sans,sans-serif;line-height: 14px; margin-top: 10px;">
-                                            <a style="font-size: 5px; text-align: left;display: inline-block ;word-break:break-all;white-space:normal;">
-                                                an Open Source,Distributed, RESTful, Search Engine built 中文on top of Lucene8888888888888888888888888888888888888888888999999999999999999998888888888888888888888888888888888888888888888888
-                                            </a>
-                                        </div>
-                                        <div class="stats-row fl">
-                                            <a href="/questions/tagged/javascript?sort=newest&amp;days=1" title="883 questions tagged javascript in the last 24 hours">883 asked today</a>,
-                                            <a href="/questions/tagged/javascript?sort=newest&amp;days=7" title="6663 questions tagged javascript in the last 7 days">6663th88888888888999999999999999999999888888888888is week</a>
-                                        </div>
-                                    </td>
-                                </tr>
+            <div class="col-md-3">
 
-                            </tbody>
-                        </table>
-                        -->
-
-                        <div class="col-md-3"style="padding-left: 15px;padding-right: 5px;margin-top: 5px;">
-                            <article class=" blog-teaser" style="border: 1px solid #ddd;">
-                                <div>
-                                    <a class="tag" style=" background-color: rgb(255,236,244);">javasript</a>
-                                </div>
-                                <div style="height: 39px;overflow: hidden;font-family: Arial,Liberation Sans,DejaVu Sans,sans-serif;line-height: 14px; margin-top: 10px;">
-                                    备注:<a style="font-size: 5px; text-align: left;display: inline-block ;word-break:break-all;white-space:normal;">无</a>
-                                </div>
-                                <div style="font-family: Arial,Liberation Sans,DejaVu Sans,sans-serif;line-height: 14px; margin-top: 10px;font-size: 5px; text-align: left;display: inline-block ;word-break:break-all;white-space:normal;">
-                                    问题数量：<a class="tag btn-info" style="border-radius: 90px;">1000</a><br/>
-                                    文章数量：<a class="tag btn-info" style="border-radius: 90px;">10088888</a>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="col-md-3"style="padding-left: 15px;padding-right: 5px;margin-top: 5px;">
-                            <article class=" blog-teaser" style="border: 1px solid #ddd;">
-                                <div>
-                                    <a class="tag" style=" background-color: rgb(255,236,244);">javasript</a>
-                                </div>
-                                <div style="height: 39px;overflow: hidden;font-family: Arial,Liberation Sans,DejaVu Sans,sans-serif;line-height: 14px; margin-top: 10px;">
-                                    备注:<a style="font-size: 5px; text-align: left;display: inline-block ;word-break:break-all;white-space:normal;">无</a>
-                                </div>
-                                <div style="font-family: Arial,Liberation Sans,DejaVu Sans,sans-serif;line-height: 14px; margin-top: 10px;font-size: 5px; text-align: left;display: inline-block ;word-break:break-all;white-space:normal;">
-                                    问题数量：<a class="tag btn-info" style="border-radius: 90px;">1000</a><br/>
-                                    文章数量：<a class="tag btn-info" style="border-radius: 90px;">10088888</a>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="col-md-3"style="padding-left: 15px;padding-right: 5px;margin-top: 5px;">
-                            <article class=" blog-teaser" style="border: 1px solid #ddd;">
-                                <div>
-                                    <a class="tag" style=" background-color: rgb(255,236,244);">javasript</a>
-                                </div>
-                                <div style="height: 39px;overflow: hidden;font-family: Arial,Liberation Sans,DejaVu Sans,sans-serif;line-height: 14px; margin-top: 10px;">
-                                    备注:<a style="font-size: 5px; text-align: left;display: inline-block ;word-break:break-all;white-space:normal;">无</a>
-                                </div>
-                                <div style="font-family: Arial,Liberation Sans,DejaVu Sans,sans-serif;line-height: 14px; margin-top: 10px;font-size: 5px; text-align: left;display: inline-block ;word-break:break-all;white-space:normal;">
-                                    问题数量：<a class="tag btn-info" style="border-radius: 90px;">1000</a><br/>
-                                    文章数量：<a class="tag btn-info" style="border-radius: 90px;">10088888</a>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="col-md-3"style="padding-left: 15px;padding-right: 5px;margin-top: 5px;">
-                            <article class=" blog-teaser" style="border: 1px solid #ddd;">
-                                <div>
-                                    <a class="tag" style=" background-color: rgb(255,236,244);">javasript</a>
-                                </div>
-                                <div style="height: 39px;overflow: hidden;font-family: Arial,Liberation Sans,DejaVu Sans,sans-serif;line-height: 14px; margin-top: 10px;">
-                                    备注:<a style="font-size: 5px; text-align: left;display: inline-block ;word-break:break-all;white-space:normal;">无</a>
-                                </div>
-                                <div style="font-family: Arial,Liberation Sans,DejaVu Sans,sans-serif;line-height: 14px; margin-top: 10px;font-size: 5px; text-align: left;display: inline-block ;word-break:break-all;white-space:normal;">
-                                    问题数量：<a class="tag btn-info" style="border-radius: 90px;">1000</a><br/>
-                                    文章数量：<a class="tag btn-info" style="border-radius: 90px;">10088888</a>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="col-md-3"style="padding-left: 15px;padding-right: 5px;margin-top: 5px;">
-                            <article class=" blog-teaser" style="border: 1px solid #ddd;">
-                                <div>
-                                    <a class="tag" style=" background-color: rgb(255,236,244);">javasript</a>
-                                </div>
-                                <div style="height: 39px;overflow: hidden;font-family: Arial,Liberation Sans,DejaVu Sans,sans-serif;line-height: 14px; margin-top: 10px;">
-                                    备注:<a style="font-size: 5px; text-align: left;display: inline-block ;word-break:break-all;white-space:normal;">无</a>
-                                </div>
-                                <div style="font-family: Arial,Liberation Sans,DejaVu Sans,sans-serif;line-height: 14px; margin-top: 10px;font-size: 5px; text-align: left;display: inline-block ;word-break:break-all;white-space:normal;">
-                                    问题数量：<a class="tag btn-info" style="border-radius: 90px;">1000</a><br/>
-                                    文章数量：<a class="tag btn-info" style="border-radius: 90px;">10088888</a>
-                                </div>
-                            </article>
-                        </div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-                <div class="col-md-8 blog-main" style="margin-right: 0px;padding-right: 0px;">
-                    <div class="row">
-                        <ul class="nav nav-tabs aw-nav-tabs active hidden-xs">
-                            <li><a href="http://spring4all.com/sort_type-unresponsive">等待回复</a></li>
-                            <li><a href="http://spring4all.com/sort_type-hot__day-7" id="sort_control_hot">热门</a></li>
-                            <li><a href="http://spring4all.com/is_recommend-1">推荐</a></li>
-                            <li class="active"><a href="http://spring4all.com/">最新</a></li>
-
-                            <h2 class="hidden-xs"><i class="icon icon-list"></i> 发现</h2>
-                        </ul>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <article class=" blog-teaser">
-
-                                <header>
-                                    <img src="img/1.jpg" alt="">
-                                    <h3><a href="single.html">How to Create Template</a></h3>
-                                    <span class="meta">19 August 2015, John Doe</span>
-                                    <hr>
-                                </header>
-
-                            </article>
-                        </div>
-                        <div class="col-md-6 col-sm-6" style="margin-left: 0px; padding-left: 0px;">
-                            <article class="blog-teaser">
-                                <header>
-                                    <img src="img/2.jpg" alt="">
-                                    <h3><a href="single.html">Clean Personal Blog Template</a></h3>
-                                    <span class="meta">19 August 2015, John Doe</span>
-                                    <hr>
-                                </header>
-
-                            </article>
+                <div class="row">
+                    <a class="btn btn-info" style="margin-right: 0px;">我要提问</a>
+                    <div id="myCarousel" class="carousel slide" style="margin-top: 10px;">
+                        <!-- 轮播（Carousel）指标 -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+                        <!-- 轮播（Carousel）项目 -->
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img src="http://img3.imgtn.bdimg.com/it/u=1161209730,2018761545&fm=26&gp=0.jpg" alt="First slide">
+                                <div class="carousel-caption">标题 1</div>
+                            </div>
+                            <div class="item">
+                                <img src="http://img3.imgtn.bdimg.com/it/u=1161209730,2018761545&fm=26&gp=0.jpg" alt="Second slide">
+                                <div class="carousel-caption">标题 2</div>
+                            </div>
+                            <div class="item">
+                                <img src="http://img3.imgtn.bdimg.com/it/u=1161209730,2018761545&fm=26&gp=0.jpg" alt="Third slide">
+                                <div class="carousel-caption">标题 3</div>
+                            </div>
                         </div>
                     </div>
-
-
-                </div>
-                <div class="col-md-4 blog-main">
-                    <div class="aside-widget">
+                    <div class="aside-widget" style="margin-top: 5px;">
                         <header>
-                            <h3>IT达人</h3>
-                        </header>
-                        <div class="body clearfix">
-                            <ul class="tags">
-                                <li><a href="#">HTML5</a></li>
-                                <li><a href="#">CSS3</a></li>
-                                <li><a href="#">COMPONENTS</a></li>
-                                <li><a href="#">TEMPLATE</a></li>
-                                <li><a href="#">PLUGIN</a></li>
-                                <li><a href="#">BOOTSTRAP</a></li>
-                                <li><a href="#">TUTORIAL</a></li>
-                                <li><a href="#">UI/UX</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="aside-widget">
-                        <header>
-                            <h3>新增标签</h3>
+                            <h3>热门标签</h3>
                         </header>
                         <div class="body clearfix">
                             <ul class="tags">
@@ -274,18 +129,9 @@
             </div>
         </div>
     </div>
-
-    <div id="footerwrap" style="background-color:black;">
-	  <div class="container">
-		<div class="row">
-		  <div class="col-md-8"></span> </div>
-		  <div class="col-md-4">
-			<ul class="list-inline social-buttons">
-			</ul>
-		  </div>
-		</div>
-	  </div>
-	</div>
-
+</div>
+<!-- javascript -->
+<script src="/plug/jquery/jquery-1.12.4.min.js"></script>
+<script src="/plug/bootstrap/js/bootstrap.js"></script>
 </body>
 </html>

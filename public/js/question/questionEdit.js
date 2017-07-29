@@ -4,7 +4,7 @@ function init(){
     var paramArray =  url.split("&");
     questionId = paramArray[0].substr(url.indexOf('=') + 1);
     var url = "/v1/api/admin/question/findById?id="+questionId;
-    $.danmuAjax(url,'GET','json',{},function (data) {
+    $.commonAjax(url,'GET','json',{},function (data) {
         if(data.code='2000'){
             $("#tagId").val(data.data.tagId);
             $("#tagName").val(data.data.tagName);

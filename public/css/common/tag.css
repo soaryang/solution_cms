@@ -1,0 +1,69 @@
+/* Blog aside widgets */
+.aside-widget {
+    margin-bottom: 5px;
+    border: 1px solid #ddd;
+    /*border-left: 10px solid #ddd;*/
+}
+
+.aside-widget header {
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #ddd;
+}
+
+.aside-widget header h3 {
+    font-size: 24px;
+    padding: 10px 20px 3px 20px;
+    margin-top: 0;
+    color: #48535f;
+}
+
+.aside-widget .body {
+    margin: 10px 0;
+    padding: 5px;
+}
+
+.aside-widget a {
+    color: #5b6268;
+}
+
+/* =============
+The tags widget
+================ */
+.tags {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+.tags li {
+    float: left;
+}
+
+.tags li a {
+    padding: 3px 15px;
+    display: inline-block;
+    margin: 5px;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 25px;
+}
+
+.tags li a:focus,
+.tags li a:hover {
+    border-color: red;
+}
+
+.tag {
+    position: relative;
+    display: inline-block;
+    padding: .4em .5em;
+    margin: 2px 2px 2px 0;
+    font-size: 11px;
+    line-height: 1;
+    white-space: nowrap;
+    text-decoration: none;
+    text-align: center;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 0;
+    transition: all .15s ease-in-out;
+}
