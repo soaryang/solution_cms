@@ -34,20 +34,20 @@ var init = function (index) {
 
                 var pageHtml='<ul class="pagination pagination-lg">';
                 if(index==1){
-                    pageHtml+=' <li><a href="#" onclick="init('+1+')" disabled="disabled">&laquo;</a></li>';
+                    pageHtml+=' <li class="active"><a href="#" onclick="init('+1+')">&laquo;</a></li>';
                 }else{
                     pageHtml+=' <li><a href="#" onclick="init('+1+')" >&laquo;</a></li>';
                 }
 
                 for(var i=1; i<= page; i++){
                     if(index==i){
-                        pageHtml+=' <li><a href="#" onclick="init('+i+')" disabled="disabled">'+i+'</a></li>';
+                        pageHtml+=' <li class="active"><a href="#" onclick="init('+i+')">'+i+'</a></li>';
                     }else{
                         pageHtml+=' <li><a href="#" onclick="init('+i+')">'+i+'</a></li>';
                     }
                 }
                 if(parseInt(page)==index){
-                    pageHtml+=' <li><a href="#" onclick="init('+parseInt(page)+')" disabled="disabled">&raquo;</a></li>';
+                    pageHtml+=' <li class="active"><a href="#" onclick="init('+parseInt(page)+')">&raquo;</a></li>';
                 }else{
                     pageHtml+=' <li><a href="#" onclick="init('+parseInt(page)+')">&raquo;</a></li>';
                 }
