@@ -13,10 +13,10 @@ var screenColumnsArray =[
         field: 'id', title: '操作',
         align: 'center',
         formatter: function (value, row, index) {
-            var button = '<a class="btn btn-info" href="/question/questionEdit?questionId='+row.id+'">编辑</a>&nbsp;';
+            var button = '<a class="btn btn-info" href="/admin/question/questionEdit?questionId='+row.id+'">编辑</a>&nbsp;';
             button += '<a class="btn btn-danger" onclick="del(\''+row.id+'\')">删除</a>&nbsp;';
-            button += '<a class="btn btn-success" href="/question/solutionList?questionId='+row.id+'">解决方案列表</a>&nbsp;';
-            button += '<a class="btn btn-success" href="/question/solutionAdd?questionId='+row.id+'">添加解决方案</a>&nbsp;';
+            button += '<a class="btn btn-success" href="/admin/question/solutionList?questionId='+row.id+'">解决方案列表</a>&nbsp;';
+            button += '<a class="btn btn-success" href="/admin/question/solutionAdd?questionId='+row.id+'">添加解决方案</a>&nbsp;';
             return button;
         }
     }
