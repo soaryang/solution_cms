@@ -20,7 +20,7 @@ function doShowContent(){
                 var solutionArray = jsonObject.solutionViewList;
                 if(solutionArray!=null){
                     for(var i=0; i<solutionArray.length; i++){
-                        var html = markdown.toHTML(solutionArray[i]);
+                        var html = markdown.toHTML(solutionArray[i].content);
                         console.log(html);
                     }
                 }
