@@ -4,7 +4,7 @@ var init=function() {
     var url = location.href.substring(location.href.indexOf("?")+1);
     var paramArray =  url.split("&");
     questionId = paramArray[0].substr(url.indexOf('=') + 1);
-    testEditor = testEditor = initMarkdownplug('txtblogcontent');
+    testEditor = initMarkdownplug('txtblogcontent');
 }
 function doShowContent() {
     //alert(toMarkdown(testEditor.getMarkdown(testEditor.getMarkdown())));

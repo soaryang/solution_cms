@@ -18,7 +18,7 @@ var init = function (index) {
                     html+='<a class="tag" style=" background-color: rgb(255,236,244); width: 50px; height: 50px;"><span>访问</span><br/><span>50</span></a>';
                     html+='</div>';
                     html+='<div style="float: left;margin-top: 10px;margin-left: 15px;">';
-                    html+='<h4><a href="javascript:void(0);">'+questionObject.name+'</a></h4>';
+                    html+='<h4><a href="javascript:void(0);" href="/question/'+questionObject.id+'">'+questionObject.name+'</a></h4>';
                     html+='<div>';
                     html+='<a class="tag" style=" background-color: rgb(255,236,244);">'+questionObject.tagName+'</a>';
                     html+='</div>';

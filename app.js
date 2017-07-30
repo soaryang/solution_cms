@@ -39,6 +39,9 @@ app.use(function(req,res,next){
     console.log("log:"+req.host);
     if(req.originalUrl.indexOf('/admin')!=-1){
         authorize(req,res,next);
+    }else if(req.originalUrl.indexOf('/question')!=-1){
+        next();
+        //return res.redirect('/question/questionInfo');
     }else if("/login" == req.originalUrl){
         next();
     }else{
