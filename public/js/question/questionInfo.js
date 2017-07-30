@@ -3,7 +3,7 @@ function doShowContent(){
 
     $.ajax({
         type: "GET",
-        url:"/v1/api/solution/findById?id="+$("#questionId").val(),
+        url:"/v1/api/question/findById?id="+$("#questionId").val(),
         data:{},
         async: true,
         dataType:'json',
@@ -28,5 +28,5 @@ function doShowContent(){
         }
     });
 }
-init();
+doShowContent();
 
