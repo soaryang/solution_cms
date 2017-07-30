@@ -20,8 +20,7 @@ function doShowContent(){
                 var solutionArray = jsonObject.solutionViewList;
                 if(solutionArray!=null){
                     for(var i=0; i<solutionArray.length; i++){
-                        var converter = new showdown.Converter();
-                        var html = converter.makeHtml(solutionArray[i]);
+                        var html = markdown.toHTML(solutionArray[i]);
                         console.log(html);
                     }
                 }
