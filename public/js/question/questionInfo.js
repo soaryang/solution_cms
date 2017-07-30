@@ -1,20 +1,9 @@
 var testEditor;
-var id;
-var init=function() {
-    var url = location.href.substring(location.href.indexOf("?")+1);
-    var paramArray =  url.split("&");
-    id = paramArray[0].substr(url.indexOf('=') + 1);
-    //testEditor = initMarkdownplug('txtblogcontent');
-    //testEditor = initMarkdownplug('txtblogcontent');
-    //doShowContent();
-    doShowContent();
-}
-
 function doShowContent(){
 
     $.ajax({
         type: "GET",
-        url:"/v1/api/solution/findById?id="+id,
+        url:"/v1/api/solution/findById?id="+$("#questionId").val(),
         data:{},
         async: true,
         dataType:'json',

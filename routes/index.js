@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
 router.get("/question/:id",function(req,res,next){
     var id = req.params.id;
     console.log("id:"+id);
-    res.render('question/questionInfo', { title: 'Express' });
+    res.render('question/questionInfo', { questionId: id });
 })
 
 /**跳转到登录页*/
