@@ -8,7 +8,8 @@ var screenColumnsArray =[
         align: 'left',
         width: '80%',
         formatter: function (value, row, index) {
-            return marked(row.content.substr(0,50));
+            return row.content.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+                //.substr(0,50);
         }
     },
     {

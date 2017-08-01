@@ -25,7 +25,7 @@ var init = function (index) {
                     html+='<span class="from">今天16:48</span>';
                     html+='</div>';
                     html+='<div class="source">';
-                    html+='<span class="tag">spring</span>';
+                    html+='<span class="tag">'+questionObject.tagName+'</span>';
                     html+='</div>';
                     html+='</div>';
                     html+='</div>';
