@@ -3960,7 +3960,7 @@
 		markdownDoc = new String(markdownDoc);
         
         var markdownParsed = marked(markdownDoc, markedOptions);
-        
+
         markdownParsed = editormd.filterHTMLTags(markdownParsed, settings.htmlDecode);
         
         if (settings.markdownSourceCode) {

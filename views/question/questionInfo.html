@@ -4,9 +4,10 @@
     <meta charset="utf-8">
     <title>A free web template from</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="http://47.94.18.12/plug/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/plug/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/common/common.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/common/tag.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -37,29 +38,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-9">
-                <div>
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a href="#home" data-toggle="tab">热门</a></li>
-                        <li><a href="#ios" data-toggle="tab">最新</a></li>
-                        <li><a href="#ios" data-toggle="tab">最新解决</a></li>
-
-
-                        <li class="dropdown">
-                            <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown">Java <b
-                                    class="caret"></b></a>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
-                                <li><a href="#jmeter" tabindex="-1" data-toggle="tab">jmeter</a></li>
-                                <li><a href="#ejb" tabindex="-1" data-toggle="tab">ejb</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
                 <div id="solutionList">
 
                 </div>
+                <div id="test-editormd-view" style="border: 1px solid rgb(221, 221, 221);">
+                    <textarea style="display:none;" name="test-editormd-markdown-doc">###Hello world!</textarea>
+                </div>
             </div>
             <div class="col-md-3">
-
                 <div class="row">
                     <a class="btn btn-info" style="margin-right: 0px;">我要提问</a>
                     <div id="myCarousel" class="carousel slide" style="margin-top: 10px;">
@@ -109,12 +95,11 @@
 </div>
 <input type="hidden" id="questionId" value="<%= questionId %>">
 <!-- javascript -->
-<script src="http://47.94.18.12/plug/jquery/jquery-1.12.4.min.js"></script>
-<script src="http://47.94.18.12/plug/bootstrap/js/bootstrap.js"></script>
+<script src="/plug/jquery/jquery-1.12.4.min.js"></script>
+<script src="/plug/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="/js/common/soaryang.common.handler.js"></script>
 <script type="text/javascript" src="/js/common/soaryang.ajax.plug.js"></script>
-<script type="text/javascript" src="/plug/markdown/to-markdown.js"></script>
-<script type="text/javascript" src="/plug/markdown/markdown.min.js"></script>
+<%include ../common/markdown.html%>
 <script src="/js/question/questionInfo.js"></script>
 </body>
 </html>

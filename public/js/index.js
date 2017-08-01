@@ -11,19 +11,43 @@ var init = function (index) {
                 var array =questionArray.slice((index-1)*pageSize,index*pageSize)
                 for(var i=0; i<array.length; i++){
                     var questionObject = array[i];
-                    html+='<div style="display: inline-block; border-bottom:  1px dashed #ddd;width: 100%;">';
-                    html+='<div style="float: left;margin-top: 10px;">';
-                    html+='<a class="tag" style=" background-color: rgb(255,236,244); width: 50px; height: 50px;"><span>关注</span><br/><span>50</span></a>';
-                    html+='<a class="tag" style=" background-color: rgb(255,236,244); width: 50px; height: 50px;"><span>回答</span><br/><span>'+questionObject.solutionCount+'</span></a>';
-                    html+='<a class="tag" style=" background-color: rgb(255,236,244); width: 50px; height: 50px;"><span>访问</span><br/><span>50</span></a>';
+                    html+='<div class="channel-item">';
+                    html+='<div class="likes">';
+                    html+='<img src="http://47.94.18.12/images/temp.jpg" width="70" height="70" alt="">';
                     html+='</div>';
-                    html+='<div style="float: left;margin-top: 10px;margin-left: 15px;">';
-                    html+='<h4><a href="/question/'+questionObject.id+'">'+questionObject.name+'</a></h4>';
-                    html+='<div>';
-                    html+='<a class="tag" style=" background-color: rgb(255,236,244);">'+questionObject.tagName+'</a>';
+                    html+='<div class="bd">';
+                    html+='<h3><a href="/question/'+questionObject.id+'">'+questionObject.name+'</a></h3>';
+                    html+='<div class="source">';
+                    html+='<span class="from">FROM:管理员</span>';
+                    html+='<span class="from">回答:'+questionObject.solutionCount+'</span>';
+                    html+='<span class="from">访问:'+0+'</span>';
+                    html+='<span class="from">关注:'+0+'</span>';
+                    html+='<span class="from">今天16:48</span>';
+                    html+='</div>';
+                    html+='<div class="source">';
+                    html+='<span class="tag">spring</span>';
                     html+='</div>';
                     html+='</div>';
                     html+='</div>';
+                    //html+='<div style="display: inline-block; border-bottom:  1px dashed #ddd;width: 100%; margin-bottom: 10px;">';
+                    //html+='<div class="questionItem">';
+                    //html+='<div class="questionAuthor">';
+                    //html+='<a>';
+                    //html+='<img src="//b.thumbs.redditmedia.com/-mwUmWH_cvdH9fAsdBpgsz6gy4l2JIKSwuLrDHVIbXM.jpg" width="70" height="70" alt=""></a>';
+                    //html+='<img src="" class="likes">'
+                    //html+='<a class="likes"><span>关注</span><br/><span>50</span></a>';
+                    //html+='<a class="tag" style=" background-color: rgb(255,236,244); width: 50px; height: 50px;"><span>回答</span><br/><span>'+questionObject.solutionCount+'</span></a>';
+                    //html+='<a class="tag" style=" background-color: rgb(255,236,244); width: 50px; height: 50px;"><span>访问</span><br/><span>50</span></a>';
+                    //html+='</div>';
+                    //html+='<div class="questionInfo">';
+                    //html+='<div class="title">';
+                    //html+='<a href="/question/'+questionObject.id+'">'+questionObject.name+'</a>';
+                    //html+='</div>';
+                    //html+='<div>';
+                    //html+='<a class="tag" style=" background-color: rgb(255,236,244);">'+questionObject.tagName+'</a>';
+                    //html+='</div>';
+                    //html+='</div>';
+                    //html+='</div>';
                 }
                 var page = 0;
                 if(count%pageSize==0){
