@@ -1,6 +1,8 @@
 var pageSize = 10;
 var init = function (index) {
-    var url ="/cachedata/questioncache.json";
+    //$(".questionListDiv").load("/cachedata/questionList.html");
+    var url ="/cachedata/newquestioncache.json";
+    setTitle(0);
     $.commonAjax(url, 'get','json',{}, function (data) {
         console.log(data);
         var html='';
@@ -29,25 +31,6 @@ var init = function (index) {
                     html+='</div>';
                     html+='</div>';
                     html+='</div>';
-                    //html+='<div style="display: inline-block; border-bottom:  1px dashed #ddd;width: 100%; margin-bottom: 10px;">';
-                    //html+='<div class="questionItem">';
-                    //html+='<div class="questionAuthor">';
-                    //html+='<a>';
-                    //html+='<img src="//b.thumbs.redditmedia.com/-mwUmWH_cvdH9fAsdBpgsz6gy4l2JIKSwuLrDHVIbXM.jpg" width="70" height="70" alt=""></a>';
-                    //html+='<img src="" class="likes">'
-                    //html+='<a class="likes"><span>关注</span><br/><span>50</span></a>';
-                    //html+='<a class="tag" style=" background-color: rgb(255,236,244); width: 50px; height: 50px;"><span>回答</span><br/><span>'+questionObject.solutionCount+'</span></a>';
-                    //html+='<a class="tag" style=" background-color: rgb(255,236,244); width: 50px; height: 50px;"><span>访问</span><br/><span>50</span></a>';
-                    //html+='</div>';
-                    //html+='<div class="questionInfo">';
-                    //html+='<div class="title">';
-                    //html+='<a href="/question/'+questionObject.id+'">'+questionObject.name+'</a>';
-                    //html+='</div>';
-                    //html+='<div>';
-                    //html+='<a class="tag" style=" background-color: rgb(255,236,244);">'+questionObject.tagName+'</a>';
-                    //html+='</div>';
-                    //html+='</div>';
-                    //html+='</div>';
                 }
                 var page = 0;
                 if(count%pageSize==0){
@@ -77,7 +60,7 @@ var init = function (index) {
                 }
                 pageHtml+='</ul>';
                 $("#pagePlugId").html(pageHtml);
-                $("#questionList").html(html);
+                $(".question_0").html(html);
             }
         }else{
             $("#questionList").html('没有数据');
@@ -89,3 +72,16 @@ var init = function (index) {
     });
 }
 init(1);
+
+function setTitle(index) {
+    var size = $(".title li").length;
+    for(var i=0; i<size; i++){
+        if(index==i){
+            $(".question_"+i).show();
+            $(".question_"+i+"_li").addClass("active");
+        }else{
+            $(".question_"+i).hide();
+            $(".question_"+i+"_li").remove("active");
+        }
+    }
+}
