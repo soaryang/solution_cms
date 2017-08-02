@@ -6,9 +6,9 @@ var init = function (index) {
     //$(".questionListDiv").load("/cachedata/questionList.html");
 
     setTitle(index);
-    if(index==0){
+    if(index==1){
         url =urlnewQuestion;
-    }else if(index==1){
+    }else if(index==2){
         url =urlhotQuestion;
     }
     $.commonAjax(url, 'get','json',{}, function (data) {
@@ -68,7 +68,7 @@ var init = function (index) {
                 }
                 pageHtml+='</ul>';
                 $("#pagePlugId").html(pageHtml);
-                $(".question_0").html(html);
+                $(".question_"+index).html(html);
             }
         }else{
             $("#questionList").html('没有数据');
@@ -79,11 +79,11 @@ var init = function (index) {
 
     });
 }
-init(0);
+init(1);
 
 function setTitle(index) {
     var size = $(".title li").length;
-    for(var i=0; i<size; i++){
+    for(var i=1; i<=size; i++){
 
         if(index==i){
             $(".question_"+i).show();
