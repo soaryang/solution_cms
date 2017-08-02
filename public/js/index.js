@@ -1,10 +1,16 @@
 var pageSize = 10;
 var urlnewQuestion ="/cachedata/newquestioncache.json";
 var urlhotQuestion ="/cachedata/hotquestioncache.json";
-var init = function (index,url) {
+var url="";
+var init = function (index) {
     //$(".questionListDiv").load("/cachedata/questionList.html");
 
     setTitle(index);
+    if(index==0){
+        url =urlnewQuestion;
+    }else if(index==1){
+        url =urlhotQuestion;
+    }
     $.commonAjax(url, 'get','json',{}, function (data) {
         console.log(data);
         var html='';
@@ -73,15 +79,10 @@ var init = function (index,url) {
 
     });
 }
-init(0,urlnewQuestion);
+init(0);
 
 function setTitle(index) {
     var size = $(".title li").length;
-    if(index==0){
-        init(index,urlnewQuestion);
-    }else if(index==1){
-        init(index,urlhotQuestion);
-    }
     for(var i=0; i<size; i++){
 
         if(index==i){
