@@ -77,12 +77,13 @@ init(0,urlnewQuestion);
 
 function setTitle(index) {
     var size = $(".title li").length;
+    if(index==0){
+        init(index,urlnewQuestion);
+    }else if(index==1){
+        init(index,urlhotQuestion);
+    }
     for(var i=0; i<size; i++){
-        if(i==0){
-            init(i,urlnewQuestion);
-        }else if(i==1){
-            init(i,urlhotQuestion);
-        }
+
         if(index==i){
             $(".question_"+i).show();
             $(".question_"+i+"_li").addClass("active");
