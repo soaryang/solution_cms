@@ -83,8 +83,8 @@ init(1);
 
 function setTitle(index) {
     var size = $(".title li").length;
+    init(index);
     for(var i=1; i<=size; i++){
-
         if(index==i){
             $(".question_"+i).show();
             $(".question_"+i+"_li").addClass("active");
