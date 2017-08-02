@@ -2,11 +2,11 @@ var pageSize = 10;
 var urlnewQuestion ="/cachedata/newquestioncache.json";
 var urlhotQuestion ="/cachedata/hotquestioncache.json";
 var url="";
-var init = function (index) {
+var init = function (index,type) {
     //$(".questionListDiv").load("/cachedata/questionList.html");
-    if(index==1){
+    if(type==1){
         url =urlnewQuestion;
-    }else if(index==2){
+    }else if(type==2){
         url =urlhotQuestion;
     }
     $.commonAjax(url, 'get','json',{}, function (data) {
@@ -49,20 +49,20 @@ var init = function (index) {
                 if(index==1){
                     pageHtml+=' <li class="disabled"><a href="javascript:void(0);">&laquo;</a></li>';
                 }else{
-                    pageHtml+=' <li><a href="javascript:void(0);" onclick="init('+1+')" >&laquo;</a></li>';
+                    pageHtml+=' <li><a href="javascript:void(0);" onclick="init('+1+','+type+')" >&laquo;</a></li>';
                 }
 
                 for(var i=1; i<= page; i++){
                     if(index==i){
                         pageHtml+=' <li class="active"><a href="javascript:void(0);">'+i+'</a></li>';
                     }else{
-                        pageHtml+=' <li><a href="javascript:void(0);" onclick="init('+i+')">'+i+'</a></li>';
+                        pageHtml+=' <li><a href="javascript:void(0);" onclick="init('+i+','+type+')">'+i+'</a></li>';
                     }
                 }
                 if(parseInt(page)==index){
                     pageHtml+=' <li class="disabled"><a href="javascript:void(0);">&raquo;</a></li>';
                 }else{
-                    pageHtml+=' <li><a href="javascript:void(0);" onclick="init('+parseInt(page)+')">&raquo;</a></li>';
+                    pageHtml+=' <li><a href="javascript:void(0);" onclick="init('+parseInt(page)+','+type+')">&raquo;</a></li>';
                 }
                 pageHtml+='</ul>';
                 $("#pagePlugId").html(pageHtml);
@@ -77,10 +77,10 @@ var init = function (index) {
 
     });
 }
-init(1);
+init(1,1);
 
-function setTitle(index) {
-    init(index);
+function setTitle(type) {
+    init(0,type);
     var size = $(".title li").length;
     for(var i=1; i<=size; i++){
         if(index==i){
