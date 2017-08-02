@@ -4,8 +4,6 @@ var urlhotQuestion ="/cachedata/hotquestioncache.json";
 var url="";
 var init = function (index) {
     //$(".questionListDiv").load("/cachedata/questionList.html");
-
-    setTitle(index);
     if(index==1){
         url =urlnewQuestion;
     }else if(index==2){
@@ -82,8 +80,8 @@ var init = function (index) {
 init(1);
 
 function setTitle(index) {
-    var size = $(".title li").length;
     init(index);
+    var size = $(".title li").length;
     for(var i=1; i<=size; i++){
         if(index==i){
             $(".question_"+i).show();
