@@ -17,6 +17,7 @@ var init = function (index,type) {
             var questionArray = data.questionList;
             if(questionArray!=null){
                 $(".question_"+type).html('');
+                $("#pagePlugId").html('');
                 var array =questionArray.slice((index-1)*pageSize,index*pageSize)
                 for(var i=0; i<array.length; i++){
                     var questionObject = array[i];
