@@ -37,15 +37,17 @@ var authorize = function(req, res, next){
 app.use(function(req,res,next){
     console.log('Request URL:', req.originalUrl);
     console.log("log:"+req.host);
-    if(req.originalUrl.indexOf('/admin')!=-1){
-        authorize(req,res,next);
-    }else if(req.originalUrl.indexOf('/question')!=-1){
-        next();
-        //return res.redirect('/question/questionInfo');
-    }else if("/login" == req.originalUrl){
-        next();
-    }else{
-        next();
+    if(req.originalUrl!=="/favicon.ico"){
+        if(req.originalUrl.indexOf('/admin')!=-1){
+            authorize(req,res,next);
+        }else if(req.originalUrl.indexOf('/question')!=-1){
+            next();
+            //return res.redirect('/question/questionInfo');
+        }else if("/login" == req.originalUrl){
+            next();
+        }else{
+            next();
+        }
     }
 });
 
