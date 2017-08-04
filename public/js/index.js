@@ -81,7 +81,7 @@ var init = function (index,type) {
 init(1,1);
 
 function setTitle(type) {
-    init(0,type);
+    init(1,type);
     /*var size = $(".title li").length;
     for(var i=1; i<=size; i++){
         if(index==i){
