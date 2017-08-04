@@ -1,0 +1,28 @@
+<%include ../frontCommon/frontHeader.html%>
+<link rel="stylesheet" href="/css/front/questionInfo.css" rel="stylesheet">
+<div class="main" style="margin-top: 60px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="channel-item">
+                    <h1><a id="questionName"></a></a></h1>
+                </div>
+
+                <div id="test-editormd-view" style="border: 1px solid rgb(221, 221, 221);">
+                    <textarea style="display:none;" name="test-editormd-markdown-doc">###Hello world!</textarea>
+                </div>
+            </div>
+            <%include ../frontCommon/frontRight.html%>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="questionId" value="<%= questionId %>">
+<!-- javascript -->
+<script src="/plug/jquery/jquery-1.12.4.min.js"></script>
+<script src="/plug/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="/js/common/soaryang.common.handler.js"></script>
+<script type="text/javascript" src="/js/common/soaryang.ajax.plug.js"></script>
+<%include ../common/markdown.html%>
+<script src="/js/question/questionInfo.js"></script>
+</body>
+</html>

@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Express' });
+    res.render('front/index', { title: 'Express' });
 });
 /* GET home page. */
 /*router.get('/question', function(req, res, next) {
@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
 router.get("/question/:id",function(req,res,next){
     var id = req.params.id;
     console.log("id:"+id);
-    res.render('question/questionInfo', { questionId: id });
+    res.render('front/questionInfo', { questionId: id });
 })
 
 /**跳转到登录页*/

@@ -29,6 +29,7 @@ function doShowContent(){
             if(data.code ==200){
                 init();
                 var jsonObject = data.data;
+                $("#questionName").html(jsonObject.name);
                 var solutionArray = jsonObject.solutionViewList;
                 var html="";
                 if(solutionArray!=null) {
