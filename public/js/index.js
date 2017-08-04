@@ -82,14 +82,14 @@ init(1,1);
 
 function setTitle(type) {
     init(1,type);
-    /*var size = $(".title li").length;
+    var size = $(".title li").length;
     for(var i=1; i<=size; i++){
-        if(index==i){
+        if(index==type){
             $(".question_"+i).show();
             $(".question_"+i+"_li").addClass("active");
         }else{
             $(".question_"+i).hide();
             $(".question_"+i+"_li").remove("active");
         }
-    }*/
+    }
 }
