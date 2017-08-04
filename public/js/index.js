@@ -22,7 +22,7 @@ var init = function (index,type) {
                     var questionObject = array[i];
                     html+='<div class="channel-item">';
                     html+='<div class="likes">';
-                    html+='<img src="http://47.94.18.12/images/temp.jpg" width="70" height="70" alt="">';
+                    html+='<img src="/images/temp.jpg" width="70" height="70" alt="">';
                     html+='</div>';
                     html+='<div class="bd">';
                     html+='<h3><a href="/question/'+questionObject.id+'">'+questionObject.name+'</a></h3>';
