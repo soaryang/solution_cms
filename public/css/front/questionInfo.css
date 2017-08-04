@@ -1,7 +1,7 @@
-.channel-item{
+.channel-title{
     margin-top: 10px;
 }
-.channel-item a{
+.channel-title a{
     overflow: hidden;
     zoom: 1;
     word-wrap:break-word;
@@ -9,7 +9,7 @@
     color: #666699;
     text-decoration: none;
 }
-.channel-item h1 {
+.channel-title h1 {
     word-wrap: break-word;
     display: block;
     font-size: 25px;
@@ -18,6 +18,53 @@
     margin: 0;
     padding: 0 0 15px 0;
     line-height: 1.1;
+}
+
+.channel-item {
+    margin-bottom: 20px;
+}
+.channel-item .likes {
+    float: left;
+    margin-right: 19px;
+    /*padding: 8px 0;*/
+    width: 48px;
+    line-height: 1.3;
+    text-align: center;
+    font-size: 13px;
+    color: #ca6445;
+}
+.channel-item .bd {
+    padding-left: 20px;
+    padding-bottom: 10px;
+    overflow: hidden;
+    zoom: 1;
+}
+.channel-item .bd a{
+    overflow: hidden;
+    zoom: 1;
+    word-wrap:break-word;
+    word-break:break-all;
+    color: #666699;
+    text-decoration: none;
+}
+.channel-item h3 {
+    margin: 0 0 12px 0;
+    line-height: 1.3;
+    font-weight: normal;
+    background: 0;
+    font: 16px Arial, Helvetica, sans-serif;
+    color: #666666;
+}
+.channel-item .source {
+    margin-top: 10px;
+    color: #666;
+}
+
+.channel-item .source .from {
+    margin-right: 18px;
+}
+.channel-item .pubtime {
+    color: #999;
 }
 
 /* Blog aside widgets */
