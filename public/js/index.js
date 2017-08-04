@@ -16,7 +16,7 @@ var init = function (index,type) {
             var count = data.count;
             var questionArray = data.questionList;
             if(questionArray!=null){
-                $(".question_"+index).html('');
+                $(".question_"+type).html('');
                 var array =questionArray.slice((index-1)*pageSize,index*pageSize)
                 for(var i=0; i<array.length; i++){
                     var questionObject = array[i];
@@ -67,7 +67,7 @@ var init = function (index,type) {
                 }
                 pageHtml+='</ul>';
                 $("#pagePlugId").html(pageHtml);
-                $(".question_"+index).html(html);
+                $(".question_"+type).html(html);
             }
         }else{
             $("#questionList").html('没有数据');
