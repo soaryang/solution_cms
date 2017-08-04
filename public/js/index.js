@@ -85,7 +85,7 @@ function setTitle(type) {
     init(1,type);
     var size = $(".title li").length;
     for(var i=1; i<=size; i++){
-        if(index==type){
+        if(type==i){
             $(".question_"+i).show();
             $(".question_"+i+"_li").addClass("active");
         }else{
