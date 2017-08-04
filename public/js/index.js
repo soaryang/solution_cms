@@ -82,7 +82,7 @@ init(1,1);
 
 function setTitle(type) {
     init(0,type);
-    var size = $(".title li").length;
+    /*var size = $(".title li").length;
     for(var i=1; i<=size; i++){
         if(index==i){
             $(".question_"+i).show();
@@ -91,5 +91,5 @@ function setTitle(type) {
             $(".question_"+i).hide();
             $(".question_"+i+"_li").remove("active");
         }
-    }
+    }*/
 }
