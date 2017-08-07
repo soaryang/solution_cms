@@ -2,7 +2,8 @@ var screenColumnsArray =[
     {
         field: 'name',
         title: '名称',
-        align: 'center'
+        align: 'center',
+        width:"20%"
     },
     {
         field: 'tagName',
