@@ -24,16 +24,16 @@ $().ready(function() {
         rules: {
             name: {
                 required: true,
-                rangelength:[4,20]
+                rangelength:[4,20],
+                regexname:true
             },
             password: {
                 required: true,
                 regexPassword:true,
-                minlength: 10
+                rangelength:[8,15],
             },
             repassword: {
                 required: true,
-                minlength: 10,
                 equalTo: "#password"
             },
             email: {
@@ -51,8 +51,7 @@ $().ready(function() {
                 rangelength:"用户名长度必须在4～15位之间",
             },
             password: {
-                required: "请输入密码",
-                minlength: "密码长度不能小于 5 个字母"
+                required: "请输入密码"
             },
             repassword: {
                 required: "请输入密码",
@@ -76,6 +75,7 @@ $().ready(function() {
             type: "POST",
             url:"/v1/api/register",
             data:$('#signupForm').serialize(),// 序列化表单值
+            dataType:"json",
             async: false,
             error: function(request) {
                 alert("Connection error");
@@ -83,6 +83,10 @@ $().ready(function() {
             },
             success: function(data) {
                 //initable();
+                if(data.code!==200){
+                    alert(data.message);
+                    return;
+                }
             }
         });
     });
@@ -93,9 +97,13 @@ jQuery.validator.addMethod("regexname", function(value, element) {
     return this.optional(element) ||(userblank.test(value));
 }, "需包含数字和大小写字母中至少两种字符的5-10位字符");
 
-jQuery.validator.addMethod("regexPassword", function(value, element) {
+/*jQuery.validator.addMethod("regexPassword", function(value, element) {
     return this.optional(element) || /^(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/.test(value);
-}, "一个大写，一个小写，一个符号");
+}, "一个大写，一个小写，一个符号");*/
+jQuery.validator.addMethod("regexPassword", function(value, element) {
+    var userblank = /^(?![0-9]+$)(?![a-z]+$)(?![A-Z]+$)[0-9A-Za-z]{8,15}$/;
+    return this.optional(element) ||(userblank.test(value));
+}, "需包含数字和大小写字母中至少两种字符的8-15位字符");
 
 
 jQuery.validator.addMethod("regexEmail", function(value, element) {
