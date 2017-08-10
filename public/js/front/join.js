@@ -6,6 +6,76 @@
 var countdown=10;
 var url = "/v1/api/mail/sendMail";
 $().ready(function() {
+    var handler1 = function (captchaObj) {
+        /*$("#submit1").click(function (e) {
+            var result = captchaObj.getValidate();
+            if (!result) {
+                $("#notice1").show();
+                setTimeout(function () {
+                    $("#notice1").hide();
+                }, 2000);
+                e.preventDefault();
+            }
+        });*/
+        $(".registerButton").click(function () {
+            if (! $("#signupForm").valid()) {
+                return;
+            }
+            var result = captchaObj.getValidate();
+            if (result==undefined) {
+                $("#notice1").show();
+                setTimeout(function () {
+                    $("#notice1").hide();
+                }, 2000);
+                //e.preventDefault();
+                alert('请设置验证码')
+                return;
+            }
+            $.ajax({
+                type: "POST",
+                url:"/v1/api/register",
+                data:$('#signupForm').serialize(),// 序列化表单值
+                dataType:"json",
+                async: false,
+                error: function(request) {
+                    alert("Connection error");
+                    return;
+                },
+                success: function(data) {
+                    //initable();
+                    if(data.code!==200){
+                        alert(data.message);
+                        return;
+                    }
+                }
+            });
+        });
+        // 将验证码加到id为captcha的元素里，同时会有三个input的值用于表单提交
+        captchaObj.appendTo("#captcha1");
+        captchaObj.onReady(function () {
+            $("#wait1").hide();
+        });
+        // 更多接口参考：http://www.geetest.com/install/sections/idx-client-sdk.html
+    };
+    $.ajax({
+        url: "/v1/api/captcha?t=" + (new Date()).getTime(), // 加随机数防止缓存
+        type: "get",
+        dataType: "json",
+        success: function (data) {
+            // 调用 initGeetest 初始化参数
+            // 参数1：配置参数
+            // 参数2：回调，回调的第一个参数验证码对象，之后可以使用它调用相应的接口
+            initGeetest({
+                gt: data.gt,
+                challenge: data.challenge,
+                new_captcha: data.new_captcha, // 用于宕机时表示是新验证码的宕机
+                offline: !data.success, // 表示用户后台检测极验服务器是否宕机，一般不需要关注
+                product: "float", // 产品形式，包括：float，popup
+                width: "100%"
+                // 更多配置参数请参见：http://www.geetest.com/install/sections/idx-client-sdk.html#config
+            }, handler1);
+        }
+    });
     $("#getverifyCode").click(function () {
         var b = $("#signupForm").validate().element($("#email"));
         if(b){
@@ -67,7 +137,7 @@ $().ready(function() {
         }
     })
 
-    $(".registerButton").click(function () {
+    /*$(".registerButton").click(function () {
         if (! $("#signupForm").valid()) {
             return;
         }
@@ -89,7 +159,7 @@ $().ready(function() {
                 }
             }
         });
-    });
+    });*/
 
 });
 jQuery.validator.addMethod("regexname", function(value, element) {
