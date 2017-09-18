@@ -32,7 +32,7 @@ var init = function (index,type) {
                     html+='<span class="from">回答:'+questionObject.solutionCount+'</span>';
                     html+='<span class="from">访问:'+0+'</span>';
                     html+='<span class="from">关注:'+0+'</span>';
-                    html+='<span class="from">今天16:48</span>';
+                    html+='<span class="from">日期:'+$.dateFormat(questionObject.createTime)+'</span>';
                     html+='</div>';
                     html+='<div class="source">';
                     html+='<span class="tag">'+questionObject.tagName+'</span>';
