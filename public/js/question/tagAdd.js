@@ -1,5 +1,5 @@
 var saveTag=function() {
-    $.ajax({
+    /*$.ajax({
         type: "POST",
         url:"/v1/api/admin/tag/save",
         data:$('#mainForm').serialize(),// 序列化表单值
@@ -10,6 +10,19 @@ var saveTag=function() {
         success: function(data) {
             //window.location.href="跳转页面"
             window.location.href="/admin/question/tagList";
+        }
+    });*/
+
+    $.ajaxFileUpload({
+        url:'/v1/api/admin/tag/save',
+        async: false,
+        fileElementId:'file',//file标签的id
+        dataType: 'json',//返回数据的类型
+        data:{'tagName':$("#tagName").val()},//一同上传的数据
+        success: function (data, status) {
+        },
+        error: function (data, status, e) {
+            alert(e);
         }
     });
 }

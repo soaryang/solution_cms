@@ -14,17 +14,11 @@
                                 <div class="tab-pane active" id="formcontrols">
                                     <form id="mainForm" class="form-horizontal">
 
-                                            <div class="control-group" style="margin-top: 18px;">
-                                                <label class="control-label" for="tagName">tag名称</label>
-                                                <div class="controls">
-                                                    <input type="text" class="span4" id="tagName" name="name" maxlength="10" >
-                                                </div> <!-- /controls -->
-                                            </div>
-
-                                            <div class="form-actions">
-                                                <a class="btn btn-primary" onclick="saveTag();">保存</a>
-                                                <!--<a class="btn" onclick="returnAddressList();">返回列表</a>-->
-                                            </div>
+                                        <label>tag名称</label>
+                                        <input type="text" id="tagName" name="name" maxlength="10" >
+                                        <input type="file" name="file" id="file"/>
+                                        <br/>
+                                        <a class="btn btn-primary" onclick="saveTag();">保存</a>
                                     </form>
                                 </div>
 
@@ -42,5 +36,6 @@
     <!-- /main-inner -->
 </div>
 <!-- /main -->
+<script src="/plug/jquery/ajaxfileupload.js"></script>
 <script src="/js/question/tagAdd.js"></script>
 <%include ../common/footer.html%>

@@ -39,7 +39,8 @@ app.use(function(req,res,next){
     console.log("log:"+req.host);
     if(req.originalUrl!=="/favicon.ico"){
         if(req.originalUrl.indexOf('/admin')!=-1){
-            authorize(req,res,next);
+            //authorize(req,res,next);
+            next();
         }else if(req.originalUrl.indexOf('/question')!=-1){
             next();
             //return res.redirect('/question/questionInfo');
