@@ -12,6 +12,15 @@ var screenColumnsArray =[
         width:'20%'
     },
     {
+        field: 'imagePath',
+        title: '名称',
+        align: 'center',
+        width:'20%',
+        formatter: function (value, row, index) {
+            return '<image src="'+value+'"/>'
+        }
+    },
+    {
         field: '',
         title: '操作',
         align: 'center',
