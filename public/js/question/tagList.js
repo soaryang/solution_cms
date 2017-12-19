@@ -17,7 +17,7 @@ var screenColumnsArray =[
         align: 'center',
         width:'20%',
         formatter: function (value, row, index) {
-            return '<image src="'+value+'"/>'
+            return '<image src="http://www.yangtengfei.cn/images/'+value+'"/>'
         }
     },
     {
