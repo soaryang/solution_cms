@@ -18,6 +18,12 @@ router.get('/tagAdd', function(req, res, next) {
 });
 
 
+router.get('/tagEdit/:id', function(req, res, next) {
+    //res.send('respond with a resource');
+    res.render('question/tagEdit', { tagId: req.params.id });
+});
+
+
 router.get('/questionList', function(req, res, next) {
     //res.send('respond with a resource');
     res.render('question/questionList', { title: 'Express' });

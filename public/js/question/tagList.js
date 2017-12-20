@@ -25,15 +25,13 @@ var screenColumnsArray =[
         title: '操作',
         align: 'center',
         formatter: function (value, row, index) {
-            var button = '<a class="btn btn-info">编辑</a>&nbsp;';
-            button += '<a class="btn btn-info" href="/admin/question/questionList?tagId='+row.id+'">列表</a>&nbsp;';
-
+            var button = '<a class="btn btn-info" href="/question/tagEdit/'+row.id+'">编辑</a>&nbsp;';
+            button += '<a class="btn btn-info" href="/question/questionList?tagId='+row.id+'">列表</a>&nbsp;';
             if(row.useStatus==1){
                 button += '<a class="btn btn-danger" href="javascript:void(0);" onclick="setUseStatus(\''+row.id+'\',2)">禁用</a>&nbsp;';
             }else{
                 button += '<a class="btn btn-info" href="javascript:void(0);" onclick="setUseStatus(\''+row.id+'\',1)">使用</a>&nbsp;';
             }
-
             button += '<a class="btn btn-danger" onclick="delTag(\''+row.id+'\',1)">删除</a>';
             return button;
         }
