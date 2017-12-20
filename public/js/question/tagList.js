@@ -17,7 +17,7 @@ var screenColumnsArray =[
         align: 'center',
         width:'20%',
         formatter: function (value, row, index) {
-            return '<image src="http://www.yangtengfei.cn/images/'+value+'"/>'
+            return '<image src="'+_ImageWebSite+value+'"/>'
         }
     },
     {
@@ -34,7 +34,7 @@ var screenColumnsArray =[
                 button += '<a class="btn btn-info" href="javascript:void(0);" onclick="setUseStatus(\''+row.id+'\',1)">使用</a>&nbsp;';
             }
 
-            button += '<a class="btn btn-danger">删除</a>';
+            button += '<a class="btn btn-danger" onclick="delTag(\''+row.id+'\',1)">删除</a>';
             return button;
         }
     }
@@ -67,4 +67,15 @@ function setUseStatus(id,status) {
     }, function (data) {
 
     });
+}
+
+var delTag = function (param) {
+    if(confirm('是否决定删除')){
+        var url = "/v1/api/admin/tag/del/"+param;
+        $.commonAjax(url, 'get','json',{}, function (data) {
+            $.initTable('tableList', screenColumnsArray, screenQueryObject, screenTableUrl);
+        }, function (data) {
+
+        });
+    }
 }
