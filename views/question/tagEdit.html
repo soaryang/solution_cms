@@ -5,17 +5,17 @@
 <!-- /subnavbar -->
 <div class="main">
     <div class="tagContent" >
-        <input type="hidden" class="tagId" value="<%=tagId%>"/>
+        <input type="hidden" class="tagId" id="id" value="<%=tagId%>"/>
         <div style="display:inline;">
             <span>tag名称</span>
 
-            <input type="text" id="tagName" name="name" maxlength="20" >
+            <input type="text" id="name" name="name" maxlength="20" >
         </div>
         <br/>
         <div>
             <span>图&nbsp;片</span>
             <img class="tagImage" src="https://gss3.bdstatic.com/7Po3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=05f46e0580d4b31cf03c93bdbfed4042/2cf5e0fe9925bc31137974de55df8db1cb13704b.jpg"/>
-            <input type="file" name="file" id="file" class="fileUpload" style="display: sdfsd;" onchange="setImage(this)"/>
+            <input type="file" name="file" id="file" class="fileUpload" style="display: none;" onchange="setImage(this)"/>
         </div>
         <br/>
         <a class="btn btn-primary save">保存</a>

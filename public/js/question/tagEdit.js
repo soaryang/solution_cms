@@ -1,5 +1,16 @@
 (function () {
     //lert('sdfsdfsd');
+    alert($(".tagId").val());
+    var url = "/v1/api/admin/tag/findById/"+$(".tagId").val();
+    $.commonAjax(url, 'get','json',{}, function (data) {
+        //console.log(data)
+        if(data.code==200){
+            $("#name").val(data.data.name);
+            $(".tagImage").attr('src',_ImageWebSite+data.data.imagePath);
+        }
+    }, function (data) {
+
+    });
 })();
 
 $(".tagImage").click(function () {
