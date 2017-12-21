@@ -6,7 +6,8 @@
         //console.log(data)
         if(data.code==200){
             $("#name").val(data.data.name);
-            $(".tagImage").attr('src',_ImageWebSite+data.data.imagePath);
+            var d = new Date();
+            $(".tagImage").attr('src',_ImageWebSite+data.data.imagePath+"?random="+d);
         }
     }, function (data) {
 
