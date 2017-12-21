@@ -1,6 +1,6 @@
 (function () {
     //lert('sdfsdfsd');
-    alert($(".tagId").val());
+    //alert($(".tagId").val());
     var url = "/v1/api/admin/tag/findById/"+$(".tagId").val();
     $.commonAjax(url, 'get','json',{}, function (data) {
         //console.log(data)
@@ -22,14 +22,14 @@ $(".tagImage").click(function () {
 
 $(".save").click(function () {
     $.ajaxFileUpload({
-        url:'/v1/api/admin/tag/save',
+        url:'/v1/api/admin/tag/update',
         async: false,
         fileElementId:'file',//file标签的id
         dataType: 'json',//返回数据的类型
         data:{
-            'tagName':$("#tagName").val(),
+            'tagName':$("#name").val(),
             'tagId':$(".tagId").val()
-        },//一同上传的数据
+        },
         success: function (data, status) {
             console.log(data)
         },
@@ -39,9 +39,6 @@ $(".save").click(function () {
     });
 });
 function setImage() {
-    //alert(obj.value);
-    //$(".tagImage").attr('src',obj.value);
-
     var r= new FileReader();
     f=document.getElementById('file').files[0];
     r.readAsDataURL(f);
