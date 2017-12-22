@@ -18,7 +18,7 @@ var screenColumnsArray =[
         width:'20%',
         formatter: function (value, row, index) {
             var d = new Date();
-            return '<image src="'+_ImageWebSite+value+'?'+d+'"/>'
+            return '<image class="tagImage" src="'+_ImageWebSite+value+'?'+d+'"/>'
         }
     },
     {
