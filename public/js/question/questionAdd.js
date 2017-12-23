@@ -3,7 +3,7 @@ function init(){
     var url = location.href.substring(location.href.indexOf("?")+1);
     var paramArray =  url.split("&");
     tagId = paramArray[0].substr(url.indexOf('=') + 1);
-    var url = "/v1/api/admin/tag/findById?id="+tagId;
+    var url = "/v1/api/admin/tag/findById/"+tagId;
     $.commonAjax(url,'GET','json',{},function (data) {
         if(data.code='2000'){
             $("#tagId").val(data.data.id);
@@ -61,7 +61,7 @@ var saveQuestion=function() {
         },
         success: function(data) {
             //window.location.href="跳转页面"
-            window.location.href="/admin/question/questionList";
+            window.location.href="/question/questionList";
         }
     });
 }

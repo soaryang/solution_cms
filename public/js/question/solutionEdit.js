@@ -41,7 +41,7 @@ function doEdit() {
             alert("Connection error");
         },
         success: function(data) {
-            window.location="/admin/question/solutionList?questionId="+data.data.questionId;
+            window.location="/question/solutionList?questionId="+data.data.questionId;
         }
     });
 }

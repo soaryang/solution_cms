@@ -16,7 +16,7 @@ var screenColumnsArray =[
         field: 'id', title: '操作',
         align: 'center',
         formatter: function (value, row, index) {
-            var button= '<a class="btn btn-info" href="/admin/question/solutionEdit?id='+row.id+'">编辑</a>&nbsp;';
+            var button= '<a class="btn btn-info" href="/question/solutionEdit?id='+row.id+'">编辑</a>&nbsp;';
             button +='<a class="btn btn-danger" onclick="del(\''+row.id+'\')">删除</a>&nbsp;';
             return button
 

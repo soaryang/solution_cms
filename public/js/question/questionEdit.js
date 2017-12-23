@@ -63,7 +63,7 @@ var saveQuestion=function() {
         },
         success: function(data) {
             //window.location.href="跳转页面"
-            window.location.href="/admin/question/questionList";
+            window.location.href="/question/questionList";
         }
     });
 }

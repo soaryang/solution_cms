@@ -27,7 +27,7 @@ var screenColumnsArray =[
         align: 'center',
         formatter: function (value, row, index) {
             var button = '<a class="btn btn-info" href="/question/tagEdit/'+row.id+'">编辑</a>&nbsp;';
-            button += '<a class="btn btn-info" href="/question/questionList?tagId='+row.id+'">列表</a>&nbsp;';
+            button += '<a class="btn btn-info" href="/question/questionList?tagId='+row.id+'">问题列表</a>&nbsp;';
             if(row.useStatus==1){
                 button += '<a class="btn btn-danger" href="javascript:void(0);" onclick="setUseStatus(\''+row.id+'\',2)">禁用</a>&nbsp;';
                 button += '<a class="btn btn-danger" href="javascript:void(0);" onclick="setUseStatus(\''+row.id+'\',0)">不使用</a>&nbsp;';
