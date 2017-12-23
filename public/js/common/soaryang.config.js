@@ -1,1 +1,1 @@
-_ImageWebSite="http://localhost/images"
+_ImageWebSite="http://www.yangtengfei.cn/images"
