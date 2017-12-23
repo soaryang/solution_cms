@@ -20,7 +20,7 @@ var saveTag=function() {
         dataType: 'json',//返回数据的类型
         data:{'tagName':$("#tagName").val()},//一同上传的数据
         success: function (data, status) {
-            console.log(data)
+            window.location="/question/tagList";
         },
         error: function (data, status, e) {
             alert(e);

@@ -32,7 +32,8 @@ $(".save").click(function () {
             'tagId':$(".tagId").val()
         },
         success: function (data, status) {
-            console.log(data)
+            console.log(data);
+            window.location="/question/tagList";
         },
         error: function (data, status, e) {
             alert(e);
