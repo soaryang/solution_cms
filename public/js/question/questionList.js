@@ -67,5 +67,23 @@ var initPage =function () {
     screenQueryObject.tagId = tagId;
     $.initTable('tableList', screenColumnsArray, screenQueryObject, screenTableUrl);
 }
+
+$(".btn-tag-indexPageHotQuestion").click(function () {
+    var url="/v1/api/admin/question/hostQuestion"
+    $.commonAjax(url, 'get','json',{}, function (data) {
+        console.log(data);
+    }, function (data) {
+
+    });
+});
+
+$(".btn-tag-indexPageNewQuestion").click(function () {
+    var url="/v1/api/admin/question/newQuestion"
+    $.commonAjax(url, 'get','json',{}, function (data) {
+        console.log(data);
+    }, function (data) {
+
+    });
+});
 initPage();
 
