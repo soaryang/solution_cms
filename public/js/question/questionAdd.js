@@ -1,5 +1,7 @@
 var  tagId;
+var editor;
 function init(){
+    editor = initMarkdownplug('txtblogcontent');
     var url = location.href.substring(location.href.indexOf("?")+1);
     var paramArray =  url.split("&");
     tagId = paramArray[0].substr(url.indexOf('=') + 1);
@@ -51,18 +53,17 @@ $( "#tagName" ).autocomplete({
 });
 
 var saveQuestion=function() {
-    $.ajax({
-        type: "POST",
-        url:"/v1/api/admin/question/save",
-        data:$('#mainForm').serialize(),// 序列化表单值
-        async: false,
-        error: function(request) {
-            alert("Connection error");
-        },
-        success: function(data) {
-            //window.location.href="跳转页面"
+    var url ='/v1/api/admin/question/save';
+    var data = {
+        "describe":toMarkdown(editor.getMarkdown()),
+        "tagId":$("#tagId").val(),
+        "name":$("#name").val()
+    };
+    soaryang.postAjax(url,data,function (data) {
+        if(data.code==200){
             window.location.href="/question/questionList";
         }
-    });
+    },function (data) {
+    })
 }
 init();

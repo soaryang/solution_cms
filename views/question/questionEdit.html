@@ -1,46 +1,29 @@
+<link href="/plug/markdown/css/editormd.css" rel="stylesheet" />
 <%include ../common/header.html%>
 <%include ../common/navbar.html%>
-
-<!-- /subnavbar -->
 <div class="main">
     <div class="main-inner">
         <div class="container">
             <div class="row">
-                <div class="span12">
-                    <div class="widget widget-table action-table">
-                        <!-- /widget-header -->
-                        <div class="widget-content">
-                            <div class="tab-content">
-                                <div class="tab-pane active" id="formcontrols">
-                                    <form id="mainForm" class="form-horizontal" >
-                                        <div class="control-group" style="margin-top: 18px;">
-                                            <label class="control-label" for="tagName">问题类型</label>
-                                            <div class="controls">
-                                                <input type="text" class="span4" id="tagName" name="tagName" maxlength="10">
-                                                <input type="hidden" class="span4" id="tagId" name="tagId" maxlength="10" >
-                                            </div> <!-- /controls -->
-                                        </div>
-
-                                        <div class="control-group" style="margin-top: 18px;">
-                                            <label class="control-label" for="name">问题名称</label>
-                                            <div class="controls">
-                                                <input type="text" class="span4" id="name" name="name">
-                                            </div> <!-- /controls -->
-                                        </div>
-
-                                        <input type="hidden" name="questionId" id="questionId">
-
-                                        <div class="form-actions">
-                                            <a class="btn btn-primary" onclick="saveQuestion();">保存</a> <a class="btn" href="/question/questionList">返回列表</a>
-                                        </div>
-                                    </form>
-                                </div>
-
-                            </div>
-                        </div>
-                        <!-- /widget-content -->
+                <!-- /widget-header -->
+                <input type="hidden" class="questionId" id="questionId" value="<%=questionId%>"/>
+                <div class="widget-content">
+                    <div style="margin-top: 18px;">
+                        <span>问题类型</span>
+                        <input type="text"  id="tagName" name="tagName" maxlength="10"/>
+                        <input type="hidden"  id="tagId" name="tagId" maxlength="10" />
                     </div>
-                    <!-- /widget -->
+                    <div style="margin-top: 18px;">
+                        <span for="name">问题名称</span>
+                        <input type="text" id="name" name="name"/>
+                    </div>
+                    <div style="margin-top: 18px;">
+                        <span>问题描述</span>
+                        <div id="txtblogcontent">
+                            <textarea  name="content" id="container"></textarea>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary" onclick="saveQuestion();">保存</a> <a class="btn" href="/question/questionList">返回列表</a>
                 </div>
             </div>
             <!-- /row -->
@@ -53,4 +36,8 @@
 <link rel="stylesheet" href="/plug/jquery/jquery-ui.css">
 <script src="/plug/jquery/jquery-ui.js"></script>
 <script src="/js/question/questionEdit.js"></script>
+<script src="/plug/markdown/editormd.min.js"></script>
+<script type="text/javascript" src="/plug/markdown/to-markdown.js"></script>
+<script type="text/javascript" src="/plug/markdown/markdown.min.js"></script>
+<script type="text/javascript" src="/js/common/soaryang.markdown.plug.js"></script>
 <%include ../common/footer.html%>

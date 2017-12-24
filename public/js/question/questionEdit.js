@@ -1,15 +1,16 @@
 var  questionId;
+var editor;
 function init(){
-    var url = location.href.substring(location.href.indexOf("?")+1);
-    var paramArray =  url.split("&");
-    questionId = paramArray[0].substr(url.indexOf('=') + 1);
-    var url = "/v1/api/admin/question/findById?id="+questionId;
+    var url = "/v1/api/admin/question/findById?id="+$("#questionId").val();
     $.commonAjax(url,'GET','json',{},function (data) {
         if(data.code='2000'){
+            editor = initMarkdownplug('txtblogcontent');
             $("#tagId").val(data.data.tagId);
             $("#tagName").val(data.data.tagName);
             $("#name").val(data.data.name);
             $("#questionId").val(data.data.id);
+            $("#container").val(data.data.describe);
+            console.log(data.data.describe);
         }
     },function (error) {
 
@@ -53,7 +54,20 @@ $( "#tagName" ).autocomplete({
 });
 
 var saveQuestion=function() {
-    $.ajax({
+    var url ='/v1/api/admin/question/save';
+    var data = {
+        "describe":toMarkdown(editor.getMarkdown()),
+        "tagId":$("#tagId").val(),
+        "id":$("#questionId").val(),
+        "name":$("#name").val()
+    };
+    soaryang.postAjax(url,data,function (data) {
+        if(data.code==200){
+            window.location.href="/question/questionList";
+        }
+    },function (data) {
+    })
+   /* $.ajax({
         type: "POST",
         url:"/v1/api/admin/question/save",
         data:$('#mainForm').serialize(),// 序列化表单值
@@ -65,7 +79,7 @@ var saveQuestion=function() {
             //window.location.href="跳转页面"
             window.location.href="/question/questionList";
         }
-    });
+    });*/
 }
 
 init();
