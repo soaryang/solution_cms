@@ -1,11 +1,12 @@
+var editor;
 (function () {
-    //lert('sdfsdfsd');
-    //alert($(".tagId").val());
+    editor = initMarkdownplug('tagDescribeContent');
     var url = "/v1/api/admin/tag/findById/"+$(".tagId").val();
     $.commonAjax(url, 'get','json',{}, function (data) {
         //console.log(data)
         if(data.code==200){
             $("#name").val(data.data.name);
+            $("#container").val(data.data.describe);
             var d = new Date();
             $(".tagImage").attr('src',_ImageWebSite+data.data.imagePath+"?random="+d);
         }
@@ -16,9 +17,6 @@
 
 $(".tagImage").click(function () {
    $(".fileUpload").click();
-   /*function () {
-       $(".tagImage").attr('src',obj.value);image.src = obj.value;
-   });*/
 });
 
 $(".save").click(function () {
@@ -29,7 +27,8 @@ $(".save").click(function () {
         dataType: 'json',//返回数据的类型
         data:{
             'tagName':$("#name").val(),
-            'tagId':$(".tagId").val()
+            'tagId':$(".tagId").val(),
+            'describe':toMarkdown(editor.getMarkdown())
         },
         success: function (data, status) {
             console.log(data);
