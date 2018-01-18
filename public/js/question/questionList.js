@@ -7,7 +7,7 @@ var screenColumnsArray =[
     },
     {
         field: 'tagName',
-        title: '名称',
+        title: '标签名称',
         align: 'center'
     },
     {

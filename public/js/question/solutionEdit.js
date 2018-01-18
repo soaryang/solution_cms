@@ -1,6 +1,7 @@
 var testEditor;
 var id;
 var init=function() {
+    id=$("#solutionId").val();
     doShowContent();
 }
 
