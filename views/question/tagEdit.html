@@ -1,28 +1,45 @@
-
+<link href="/plug/markdown/css/editormd.css" rel="stylesheet" />
 <%include ../common/header.html%>
 <%include ../common/navbar.html%>
 
 <!-- /subnavbar -->
 <div class="main">
-    <div class="tagContent" >
-        <input type="hidden" class="tagId" id="id" value="<%=tagId%>"/>
-        <div style="display:inline;">
-            <span>tag名称</span>
+    <div class="container">
+        <div class="row">
+            <div class="tagContent" >
+                <input type="hidden" class="tagId" id="id" value="<%=tagId%>"/>
+                <div style="display:inline;">
+                    <span>tag名称</span>
 
-            <input type="text" id="name" name="name" maxlength="20" >
+                    <input type="text" id="name" name="name" maxlength="20" >
+                </div>
+                <br/>
+                <div>
+                    <span>图&nbsp;片</span>
+                    <img class="tagImage" src="https://gss3.bdstatic.com/7Po3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=05f46e0580d4b31cf03c93bdbfed4042/2cf5e0fe9925bc31137974de55df8db1cb13704b.jpg"/>
+                    <input type="file" name="file" id="file" class="fileUpload" style="display: none;" onchange="setImage(this)"/>
+                </div>
+                <br/>
+                <div style="margin-top: 18px;" style="display: inline-block;">
+                    <span>标签介绍</span>
+                    <div id="tagDescribeContent" >
+                        <textarea  name="content" id="container"></textarea>
+                    </div>
+                </div>
+                <a class="btn btn-primary save">保存</a>
+            </div>
         </div>
-        <br/>
-        <div>
-            <span>图&nbsp;片</span>
-            <img class="tagImage" src="https://gss3.bdstatic.com/7Po3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=05f46e0580d4b31cf03c93bdbfed4042/2cf5e0fe9925bc31137974de55df8db1cb13704b.jpg"/>
-            <input type="file" name="file" id="file" class="fileUpload" style="display: none;" onchange="setImage(this)"/>
-        </div>
-        <br/>
-        <a class="btn btn-primary save">保存</a>
     </div>
 </div>
 <!-- /main -->
 <link href="/css/question/tagEdit.css" rel="stylesheet">
 <script src="/plug/jquery/ajaxfileupload.js"></script>
+<link rel="stylesheet" href="/plug/jquery/jquery-ui.css">
+<script src="/plug/jquery/jquery-ui.js"></script>
+
+<script src="/plug/markdown/editormd.min.js"></script>
+<script type="text/javascript" src="/plug/markdown/to-markdown.js"></script>
+<script type="text/javascript" src="/plug/markdown/markdown.min.js"></script>
+<script type="text/javascript" src="/js/common/soaryang.markdown.plug.js"></script>
 <script src="/js/question/tagEdit.js"></script>
 <%include ../common/footer.html%>

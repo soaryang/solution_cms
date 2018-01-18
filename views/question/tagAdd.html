@@ -1,23 +1,45 @@
+<link href="/plug/markdown/css/editormd.css" rel="stylesheet" />
 <%include ../common/header.html%>
 <%include ../common/navbar.html%>
 
 <!-- /subnavbar -->
 <div class="main">
-    <div class="tagContent" >
-        <div style="display:inline;">
-            <span>tag名称</span>
-            <input type="text" id="tagName" name="name" maxlength="20" >
+    <div class="main-inner">
+        <div class="container">
+            <div class="row">
+                <div class="tagContent">
+                    <div style="display:inline;">
+                        <span>tag名称</span>
+                        <input type="text" id="tagName" name="name" maxlength="20" >
+                    </div>
+                    <br/>
+                    <div>
+                        <span>图&nbsp;片</span>
+                        <input type="file" name="file" id="file"/>
+                    </div>
+                    <div style="margin-top: 18px;" style="display: inline-block;">
+                        <span>标签介绍</span>
+                        <div id="tagDescribeContent" >
+                            <textarea  name="content" id="container"></textarea>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary" onclick="saveTag();">保存</a>
+                </div>
+            </div>
         </div>
-        <br/>
-        <div>
-            <span>图&nbsp;片</span>
-            <input type="file" name="file" id="file"/>
-        </div>
-        <a class="btn btn-primary" onclick="saveTag();">保存</a>
     </div>
 </div>
 <!-- /main -->
 <link href="/css/question/tagAdd.css" rel="stylesheet">
 <script src="/plug/jquery/ajaxfileupload.js"></script>
+
+<link rel="stylesheet" href="/plug/jquery/jquery-ui.css">
+<script src="/plug/jquery/jquery-ui.js"></script>
+
+<script src="/plug/markdown/editormd.min.js"></script>
+<script type="text/javascript" src="/plug/markdown/to-markdown.js"></script>
+<script type="text/javascript" src="/plug/markdown/markdown.min.js"></script>
+<script type="text/javascript" src="/js/common/soaryang.markdown.plug.js"></script>
+
 <script src="/js/question/tagAdd.js"></script>
 <%include ../common/footer.html%>
