@@ -50,7 +50,7 @@ router.get('/solutionAdd', function(req, res, next) {
     res.render('question/solutionAdd', { title: 'Express' });
 });
 
-router.get('/solutionEdit', function(req, res, next) {
+router.get('/solutionEdit/:id', function(req, res, next) {
     //res.send('respond with a resource');
     res.render('question/solutionEdit',{ solutionId: req.params.id });
 });
