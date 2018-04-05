@@ -1,0 +1,27 @@
+
+body {
+    /*font: 12px Helvetica,Arial,sans-serif;*/
+    font-family: 'Helvetica Neue', 'STHeiti', '微软雅黑', 'Microsoft YaHei', Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.62;
+    color: #666;
+    /*padding: 50px 0px 0px 0px;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: #fff;*/
+    background: url(image/bg.gif) repeat;
+}
+h1 {
+    word-wrap: break-word;
+    display: block;
+    font-size: 25px;
+    font-weight: bold;
+    color: #494949;
+    margin: 0;
+    padding: 0 0 15px 0;
+    line-height: 1.1;
+}
+.container{
+    width: 950px;
+    margin: 0 auto;
+}
