@@ -12,7 +12,7 @@ function login(){
         data: {userName:$('#userName').val(),password:$('#password').val()}
     }).done(function (data) {
         if (data.code == 200) {
-            window.location.href='/admin/question';
+            window.location.href='/question';
         } else {
             alert(data.message);
         };

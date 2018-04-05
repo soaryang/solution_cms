@@ -38,10 +38,11 @@ app.use(function(req,res,next){
     console.log('Request URL:', req.originalUrl);
     console.log("log:"+req.host);
     if(req.originalUrl!=="/favicon.ico"){
-        if(req.originalUrl.indexOf('/admin')!=-1){
+        if(req.originalUrl.indexOf('/user')!=-1){
+            //authorize(req,res,next);
             authorize(req,res,next);
         }else if(req.originalUrl.indexOf('/question')!=-1){
-            next();
+            authorize(req,res,next);
             //return res.redirect('/question/questionInfo');
         }else if("/login" == req.originalUrl){
             next();
@@ -52,8 +53,8 @@ app.use(function(req,res,next){
 });
 
 app.use('/', index);
-app.use('/admin/user', users);
-app.use('/admin/question', question);
+app.use('/user', users);
+app.use('/question', question);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

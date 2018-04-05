@@ -18,6 +18,12 @@ router.get('/tagAdd', function(req, res, next) {
 });
 
 
+router.get('/tagEdit/:id', function(req, res, next) {
+    //res.send('respond with a resource');
+    res.render('question/tagEdit', { tagId: req.params.id });
+});
+
+
 router.get('/questionList', function(req, res, next) {
     //res.send('respond with a resource');
     res.render('question/questionList', { title: 'Express' });
@@ -28,9 +34,9 @@ router.get('/questionAdd', function(req, res, next) {
     res.render('question/questionAdd', { title: 'Express' });
 });
 
-router.get('/questionEdit', function(req, res, next) {
+router.get('/questionEdit/:id', function(req, res, next) {
     //res.send('respond with a resource');
-    res.render('question/questionEdit', { title: 'Express' });
+    res.render('question/questionEdit', { questionId: req.params.id });
 });
 
 
@@ -46,7 +52,7 @@ router.get('/solutionAdd', function(req, res, next) {
 
 router.get('/solutionEdit', function(req, res, next) {
     //res.send('respond with a resource');
-    res.render('question/solutionEdit', { title: 'Express' });
+    res.render('question/solutionEdit',{ solutionId: req.params.id });
 });
 
 module.exports = router;

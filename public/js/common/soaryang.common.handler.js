@@ -13,13 +13,13 @@ $.ajaxSetup({
     complete: function (xhr, status) {
         console.log('complete invoke! status:' + status + '<br/>');
         if (xhr.status == 401) {
-            window.location = '/login';
+            //window.location = '/login';
             return;
         }
-        /*if (xhr.status == 443) {
+        if (xhr.status == 443) {
             window.location = '/film/danmuCheck';
             return;
-        }*/
+        }
     },
     //发送请求前触发
     beforeSend: function (xhr) {

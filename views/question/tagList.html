@@ -9,7 +9,8 @@
                 <div class="widget-content">
                     <div>
                         <!--<button type="button" class="btn btn-primary" onclick="addAddress()">新增标签</button>-->
-                        <a href="/admin/question/tagAdd" class="btn btn-info">新增标签</a>
+                        <a href="/question/tagAdd" class="btn btn-info">新增标签</a>
+                        <a href="#" class="btn btn-info btn-tag-indexPage">设置主页标签标签</a>
                         <!--<a href="/question/tagCrawler" class="btn btn-info">抓取标签(stackworkflow)</a>-->
                     </div>
                     <div style="margin-top: 10px;margin-bottom: 10px;">
@@ -21,6 +22,8 @@
                         <select style="width: 80px;margin-top: 10px;" id="useStatus" onchange="choseUseStatus()">
                             <option value="1">使用</option>
                             <option value="0">未使用</option>
+
+
                             <option value="2">禁用</option>
                         </select>
                         <input type="button" class="btn btn-info search" value="search"/>
@@ -46,4 +49,6 @@
 <script src="/js/common/soaryang.table.plug.js"></script>
 <script type="text/javascript" src="/js/common/soaryang.table.plug.js"></script>
 <script type="text/javascript" src="/js/question/tagList.js"></script>
+
+<link href="/css/question/tagList.css" rel="stylesheet">
 <%include ../common/footer.html%>

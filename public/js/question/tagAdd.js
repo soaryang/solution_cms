@@ -1,15 +1,20 @@
+var editor;
+function init(){
+    editor = initMarkdownplug('tagDescribeContent');
+}
 var saveTag=function() {
-    $.ajax({
-        type: "POST",
-        url:"/v1/api/admin/tag/save",
-        data:$('#mainForm').serialize(),// 序列化表单值
+    $.ajaxFileUpload({
+        url:'/v1/api/admin/tag/save',
         async: false,
-        error: function(request) {
-            alert("Connection error");
+        fileElementId:'file',//file标签的id
+        dataType: 'json',//返回数据的类型
+        data:{'tagName':$("#tagName").val(),'describe':toMarkdown(editor.getMarkdown()),},//一同上传的数据
+        success: function (data, status) {
+            window.location="/question/tagList";
         },
-        success: function(data) {
-            //window.location.href="跳转页面"
-            window.location.href="/admin/question/tagList";
+        error: function (data, status, e) {
+            alert(e);
         }
     });
 }
+init();

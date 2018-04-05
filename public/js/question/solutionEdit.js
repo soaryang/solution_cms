@@ -1,12 +1,7 @@
 var testEditor;
 var id;
 var init=function() {
-    var url = location.href.substring(location.href.indexOf("?")+1);
-    var paramArray =  url.split("&");
-    id = paramArray[0].substr(url.indexOf('=') + 1);
-    //testEditor = initMarkdownplug('txtblogcontent');
-    //testEditor = initMarkdownplug('txtblogcontent');
-    //doShowContent();
+    id=$("#solutionId").val();
     doShowContent();
 }
 
@@ -41,7 +36,7 @@ function doEdit() {
             alert("Connection error");
         },
         success: function(data) {
-            window.location="/admin/question/solutionList?questionId="+data.data.questionId;
+            window.location="/question/solutionList?questionId="+data.data.questionId;
         }
     });
 }
