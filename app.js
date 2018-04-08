@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/user');
 var question = require('./routes/question');
+var course = require('./routes/course');
 
 var app = express();
 
@@ -39,9 +40,11 @@ app.use(function(req,res,next){
     console.log("log:"+req.host);
     if(req.originalUrl!=="/favicon.ico"){
         if(req.originalUrl.indexOf('/user')!=-1){
-            //authorize(req,res,next);
             authorize(req,res,next);
         }else if(req.originalUrl.indexOf('/question')!=-1){
+            authorize(req,res,next);
+            //return res.redirect('/question/questionInfo');
+        }else if(req.originalUrl.indexOf('/course')!=-1){
             authorize(req,res,next);
             //return res.redirect('/question/questionInfo');
         }else if("/login" == req.originalUrl){
@@ -55,6 +58,7 @@ app.use(function(req,res,next){
 app.use('/', index);
 app.use('/user', users);
 app.use('/question', question);
+app.use('/course', course);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

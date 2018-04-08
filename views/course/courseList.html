@@ -8,7 +8,8 @@
             <div class="row">
                 <div class="widget-content">
                     <div>
-                        <!--<button type="button" class="btn btn-primary" onclick="addAddress()">新增标签</button>-->
+                        <a href="/course/courseAdd" class="btn btn-info">新增标签</a>
+                        <!--<button type="button" class="btn btn-primary" onclick="addAddress()">新增标签</button>
                         <a href="/question/tagAdd" class="btn btn-info">新增标签</a>
                         <a href="#" class="btn btn-info btn-tag-indexPage">设置主页标签标签</a>
                         <!--<a href="/question/tagCrawler" class="btn btn-info">抓取标签(stackworkflow)</a>-->
@@ -18,14 +19,6 @@
                         <input style="width: 200px;" id="id",name="id"/>
                         <label style="display:inline;">名称</label>
                         <input style="width: 200px;" id="name",name="name"/>
-                        <label style="display:inline;">使用状况</label>
-                        <select style="width: 80px;margin-top: 10px;" id="useStatus" onchange="choseUseStatus()">
-                            <option value="1">使用</option>
-                            <option value="0">未使用</option>
-
-
-                            <option value="2">禁用</option>
-                        </select>
                         <input type="button" class="btn btn-info search" value="search"/>
                     </div>
                     <table id="tableList" class="table table-striped"
@@ -48,7 +41,6 @@
 <script src="/plug/bootstrapTable/locale/bootstrap-table-zh-CN.js"></script>
 <script src="/js/common/soaryang.table.plug.js"></script>
 <script type="text/javascript" src="/js/common/soaryang.table.plug.js"></script>
-<script type="text/javascript" src="/js/question/courseList.js"></script>
+<script type="text/javascript" src="/js/course/courseList.js"></script>
 
-<link href="/css/question/tagList.css" rel="stylesheet">
 <%include ../common/footer.html%>
