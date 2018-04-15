@@ -1,20 +1,19 @@
+var  tagId;
 var editor;
 function init(){
-    editor = initMarkdownplug('tagDescribeContent');
+    editor = initMarkdownplug('txtblogcontent');
 }
-var saveTag=function() {
-    $.ajaxFileUpload({
-        url:'/v1/api/admin/tag/save',
-        async: false,
-        fileElementId:'file',//file标签的id
-        dataType: 'json',//返回数据的类型
-        data:{'tagName':$("#tagName").val(),'describe':toMarkdown(editor.getMarkdown()),},//一同上传的数据
-        success: function (data, status) {
-            window.location="/question/tagList";
-        },
-        error: function (data, status, e) {
-            alert(e);
+var saveQuestion=function() {
+    var url ='/v1/api/admin/course/save';
+    var data = {
+        "describe":toMarkdown(editor.getMarkdown()),
+        "courseName":$("#courseName").val()
+    };
+    soaryang.postAjax(url,data,function (data) {
+        if(data.code==200){
+            window.location.href="/course/courseList";
         }
-    });
+    },function (data) {
+    })
 }
 init();

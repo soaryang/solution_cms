@@ -9,16 +9,17 @@
                 <!-- /widget-header -->
                 <div class="widget-content">
                     <div style="margin-top: 18px;">
-                        <span for="name">教程名称</span>
-                        <input type="text" id="courseName" name="courseName"/>
+                        <span>子课程内容名称</span>
+                        <input type="text"  id="courseContentName" name="courseContentName"/>
+                        <input type="input" name="courseId" id="courseId" value="<%=courseId%>" />
                     </div>
                     <div style="margin-top: 18px;">
-                        <span>教程描述</span>
-                        <div id="txtblogcontent">
+                        <span>内容</span>
+                        <div id="courseContentId">
                             <textarea  name="content" id="container"></textarea>
                         </div>
                     </div>
-                    <a class="btn btn-primary" onclick="saveQuestion();">保存</a> <a class="btn" href="/course/courseList">返回列表</a>
+                    <a class="btn btn-primary" onclick="saveQuestion();">保存</a> <a class="btn" href="/question/questionList">返回列表</a>
                 </div>
             </div>
             <!-- /row -->
@@ -35,5 +36,5 @@
 <script type="text/javascript" src="/plug/markdown/to-markdown.js"></script>
 <script type="text/javascript" src="/plug/markdown/markdown.min.js"></script>
 <script type="text/javascript" src="/js/common/soaryang.markdown.plug.js"></script>
-<script src="/js/course/courseAdd.js"></script>
+<script src="/js/course/courseContentAdd.js"></script>
 <%include ../common/footer.html%>

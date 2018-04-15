@@ -8,14 +8,8 @@
             <div class="row">
                 <div class="widget-content">
                     <div>
-                        <a href="/course/courseAdd" class="btn btn-info">新增标签</a>
-                    </div>
-                    <div style="margin-top: 10px;margin-bottom: 10px;">
-                        <label style="display:inline;">编号</label>
-                        <input style="width: 200px;" id="id",name="id"/>
-                        <label style="display:inline;">名称</label>
-                        <input style="width: 200px;" id="name",name="name"/>
-                        <input type="button" class="btn btn-info search" value="search"/>
+                        <a href="javascript:void(0);" class="btn btn-info" onclick="classAdd()">增加子课程</a>
+                        <input type="hidden" name="courseId" id="courseId" value="<%=courseId%>" />
                     </div>
                     <table id="tableList" class="table table-striped"
                            data-pagination-first-text="第一页"
@@ -37,6 +31,6 @@
 <script src="/plug/bootstrapTable/locale/bootstrap-table-zh-CN.js"></script>
 <script src="/js/common/soaryang.table.plug.js"></script>
 <script type="text/javascript" src="/js/common/soaryang.table.plug.js"></script>
-<script type="text/javascript" src="/js/course/courseList.js"></script>
+<script type="text/javascript" src="/js/course/courseContentList.js"></script>
 
 <%include ../common/footer.html%>

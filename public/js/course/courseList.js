@@ -16,14 +16,8 @@ var screenColumnsArray =[
         title: '操作',
         align: 'center',
         formatter: function (value, row, index) {
-            var button = '<a class="btn btn-info" href="/question/tagEdit/'+row.id+'">编辑</a>&nbsp;';
-            button += '<a class="btn btn-info" href="/question/questionList?tagId='+row.id+'">问题列表</a>&nbsp;';
-            if(row.useStatus==1){
-                button += '<a class="btn btn-danger" href="javascript:void(0);" onclick="setUseStatus(\''+row.id+'\',2)">禁用</a>&nbsp;';
-                button += '<a class="btn btn-danger" href="javascript:void(0);" onclick="setUseStatus(\''+row.id+'\',0)">不使用</a>&nbsp;';
-            }else{
-                button += '<a class="btn btn-info" href="javascript:void(0);" onclick="setUseStatus(\''+row.id+'\',1)">使用</a>&nbsp;';
-            }
+            var button = '<a class="btn btn-info" href="/course/courseEdit/'+row.id+'">编辑</a>&nbsp;';
+            button += '<a class="btn btn-info" href="/course/courseContentList/'+row.id+'">子课程列表</a>&nbsp;'
             button += '<a class="btn btn-danger" onclick="delTag(\''+row.id+'\',1)">删除</a>';
             return button;
         }
