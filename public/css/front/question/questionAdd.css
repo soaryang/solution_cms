@@ -1,0 +1,13 @@
+
+#note_title, #note_text {
+    width: 582px;
+    margin-top: 5px;
+    padding: 3px;
+    border: 1px solid #ccc;
+    line-height: 1.62;
+}
+
+.control-panel {
+    overflow: hidden;
+    margin-bottom: 5px;
+}
