@@ -21,6 +21,9 @@ router.get('/courseAdd', function(req, res, next) {
 router.get('/courseContentAdd/:id', function(req, res, next) {
     res.render('course/courseContentAdd',  { courseId: req.params.id });
 });
+router.get('/courseContentEdit/:id', function(req, res, next) {
+    res.render('course/courseContentEdit',  { id: req.params.id });
+});
 
 router.get('/courseContentList/:id', function(req, res, next) {
     //res.send('respond with a resource');
