@@ -1,1 +1,1 @@
-_ImageWebSite="http://localhost/images"
+_ImageWebSite="http://cms.51jieguo.com/images"
