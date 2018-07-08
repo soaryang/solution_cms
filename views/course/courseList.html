@@ -1,0 +1,42 @@
+<%include ../common/header.html%>
+<%include ../common/navbar.html%>
+
+<!-- /subnavbar -->
+<div class="main">
+    <div class="main-inner">
+        <div class="container">
+            <div class="row">
+                <div class="widget-content">
+                    <div>
+                        <a href="/course/courseAdd" class="btn btn-info">新增标签</a>
+                    </div>
+                    <div style="margin-top: 10px;margin-bottom: 10px;">
+                        <label style="display:inline;">编号</label>
+                        <input style="width: 200px;" id="id",name="id"/>
+                        <label style="display:inline;">名称</label>
+                        <input style="width: 200px;" id="name",name="name"/>
+                        <input type="button" class="btn btn-info search" value="search"/>
+                    </div>
+                    <table id="tableList" class="table table-striped"
+                           data-pagination-first-text="第一页"
+                           data-pagination-pre-text="前一页"
+                           data-pagination-next-text="下一页"
+                           data-pagination-last-text="最后一页">
+                    </table>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /main-inner -->
+</div>
+<!-- /main -->
+<link href="/plug/bootstrapTable/bootstrap-table.css" rel="stylesheet"/>
+<script src="/plug/bootstrapTable/bootstrap-table.js"></script>
+<script src="/plug/bootstrapTable/locale/bootstrap-table-zh-CN.js"></script>
+<script src="/js/common/soaryang.table.plug.js"></script>
+<script type="text/javascript" src="/js/common/soaryang.table.plug.js"></script>
+<script type="text/javascript" src="/js/course/courseList.js"></script>
+
+<%include ../common/footer.html%>
