@@ -1,0 +1,84 @@
+<%include ../common/header.html%>
+<%include ../common/navbar.html%>
+
+<!-- /subnavbar -->
+<div class="main">
+    <!--<canvas id="matrix"></canvas>-->
+    <div class="main-inner">
+        <div class="container">
+            <div class="row">
+                <div class="widget-content">
+                    <div style="margin-top: 10px;margin-bottom: 10px;">
+                        <label style="display:inline;">编号</label>
+                        <input style="width: 200px;" id="id",name="id"/>
+                        <label style="display:inline;">名称</label>
+                        <input style="width: 200px;" id="name",name="name"/>
+                        <label style="display:inline;">使用状况</label>
+                        <select style="width: 80px;margin-top: 10px;" id="useStatus" onchange="choseUseStatus()">
+                            <option value="1">使用</option>
+                            <option value="0">未使用</option>
+
+
+                            <option value="2">禁用</option>
+                        </select>
+                        <input type="button" class="btn btn-info search" value="search"/>
+                        <a href="/article/articleAdd/<%=tagId%>"><input type="button" class="btn btn-info search" value="添加"/></a>
+                    </div>
+                    <table id="tableList" class="table table-striped"
+                           data-pagination-first-text="第一页"
+                           data-pagination-pre-text="前一页"
+                           data-pagination-next-text="下一页"
+                           data-pagination-last-text="最后一页">
+                    </table>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /main-inner -->
+</div>
+
+
+<input type="text" class="tagId" id="tagId" value="<%=tagId%>"/>
+<!-- /main -->
+<link href="/plug/bootstrapTable/bootstrap-table.css" rel="stylesheet"/>
+<script src="/plug/bootstrapTable/bootstrap-table.js"></script>
+<script src="/plug/bootstrapTable/locale/bootstrap-table-zh-CN.js"></script>
+<script src="/js/common/soaryang.table.plug.js"></script>
+<script type="text/javascript" src="/js/common/soaryang.table.plug.js"></script>
+<script type="text/javascript" src="/js/article/articleList.js"></script>
+
+<link href="/css/article/article.css" rel="stylesheet">
+
+<!--
+<script type="text/javascript">
+    var matrix=document.getElementById("matrix");
+    var context=matrix.getContext("2d");
+    matrix.height=window.innerHeight;
+    matrix.width=window.innerWidth;
+    var drop=[];
+    var font_size=200;
+    var columns=matrix.width/font_size;
+    for(var i=0;i<columns;i++)
+        drop[i]=1;
+
+    function drawMatrix(){
+
+        context.fillStyle="rgba(0, 0, 0, 2)";
+        context.fillRect(0,0,matrix.width,matrix.height);
+
+        context.fillStyle="green";
+        context.font=font_size+"px";
+        for(var i=0;i<columns;i++){
+            context.fillText(Math.floor(Math.random()*2),i*font_size,drop[i]*font_size);/*get 0 and 1*/
+
+            if(drop[i]*font_size>(matrix.height*2/3)&&Math.random()>0.85)/*reset*/
+                drop[i]=0;
+            drop[i]++;
+        }
+    }
+    setInterval(drawMatrix,40);
+</script>
+-->
+<%include ../common/footer.html%>
