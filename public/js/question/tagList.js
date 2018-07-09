@@ -36,6 +36,7 @@ var screenColumnsArray =[
                 button += '<a class="btn btn-info" href="javascript:void(0);" onclick="setUseStatus(\''+row.id+'\',1)">使用</a>&nbsp;';
             }
             button += '<a class="btn btn-danger" onclick="delTag(\''+row.id+'\',1)">删除</a>';
+            button += '<a class="btn btn-info" onclick="setIndexPage(\''+row.id+'\',1)">设置首页tag</a>';
             return button;
         }
     }
@@ -88,3 +89,30 @@ var delTag = function (param) {
         });
     }
 }
+
+var setIndexPage = function (id) {
+    var url = "/v1/api/admin/tag/selectTag?tagId="+id;
+    $.commonAjax(url, 'get','json',{}, function (data) {
+        console.log(data);
+        initTagTile();
+    }, function (data) {
+
+    });
+}
+
+var initTagTile = function () {
+    var url = "/v1/api/admin/tag/findAllTagTitle";
+    $.commonAjax(url, 'get','json',{}, function (data) {
+        console.log(data.data);
+
+        $(".tagTitleDiv").empty();
+        //for(var i=)
+        $.each(data.data, function(i, item){
+            $(".tagTitleDiv").append('<span class="label label-info">'+item.tagName+'</span>&nbsp; &nbsp;');
+        });
+
+    }, function (data) {
+
+    });
+}
+initTagTile();
