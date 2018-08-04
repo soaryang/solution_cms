@@ -17,5 +17,9 @@ router.get('/edit/:id', function(req, res, next) {
 router.get('/add', function(req, res, next) {
     res.render('sourceCode/add', { title: 'Express' });
 });
+router.get('/add/:id', function(req, res, next) {
+    //res.send('respond with a resource');
+    res.render('sourceCode/add', { tagId: req.params.id });
+});
 
 module.exports = router;

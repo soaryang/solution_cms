@@ -32,7 +32,7 @@ $(".save").click(function () {
         },
         success: function (data, status) {
             console.log(data);
-            window.location="/question/tagList";
+            window.location="/tag/list";
         },
         error: function (data, status, e) {
             alert(e);

@@ -26,7 +26,8 @@ var screenColumnsArray =[
         title: '操作',
         align: 'center',
         formatter: function (value, row, index) {
-            var button = '<a class="btn btn-info" href="/question/tagEdit/'+row.id+'">编辑</a>&nbsp;';
+            var button='<div style="text-align: left;">';
+            button += '<a class="btn btn-info" href="/tag/edit/'+row.id+'">编辑</a>&nbsp;';
             button += '<a class="btn btn-info" href="/question/questionList?tagId='+row.id+'">问题列表</a>&nbsp;';
             button += '<a class="btn btn-info" href="/article/'+row.id+'">文章列表</a>&nbsp;';
             if(row.useStatus==1){
@@ -35,8 +36,10 @@ var screenColumnsArray =[
             }else{
                 button += '<a class="btn btn-info" href="javascript:void(0);" onclick="setUseStatus(\''+row.id+'\',1)">使用</a>&nbsp;';
             }
-            button += '<a class="btn btn-danger" onclick="delTag(\''+row.id+'\',1)">删除</a>';
-            button += '<a class="btn btn-info" onclick="setIndexPage(\''+row.id+'\',1)">设置首页tag</a>';
+            button += '<a class="btn btn-danger" onclick="delTag(\''+row.id+'\',1)">删除</a>&nbsp;';
+            button += '<a class="btn btn-info" onclick="setIndexPage(\''+row.id+'\',1)">设置首页tag</a>&nbsp;';
+            button += '<a class="btn btn-info" href="/sourceCode/add/'+row.id+'">添加源码</a>';
+            button +='</div>';
             return button;
         }
     }

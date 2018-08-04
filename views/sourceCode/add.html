@@ -7,24 +7,25 @@
         <div class="container">
             <div class="row">
                 <!-- /widget-header -->
-                    <div class="widget-content">
-                        <div>
-                            <span>源码名称</span>
-                            <input type="text" id="name" name="name"/>
-                        </div>
-                        <div>
-                            <span>url:</span>
-                            <input type="text" id="url" name="url"/>
-                        </div>
-                        <div>
-                             <br/>
-                            <span>描述</span>
-                            <div id="describe">
-                                <textarea  name="content" id="container"></textarea>
-                            </div>
-                        </div>
-                        <a class="btn btn-primary" onclick="save();">保存</a> <a class="btn" href="/sourceCode/list">返回列表</a>
+                <input type="hidden" class="tagId" id="tagId" name="tagId" value="<%=tagId%>"/>
+                <div class="widget-content">
+                    <div>
+                        <span>源码名称</span>
+                        <input type="text" id="name" name="name"/>
                     </div>
+                    <div>
+                        <span>url:</span>
+                        <input type="text" id="url" name="url"/>
+                    </div>
+                    <div>
+                         <br/>
+                        <span>描述</span>
+                        <div id="describe">
+                            <textarea  name="content" id="container"></textarea>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary" onclick="save();">保存</a> <a class="btn" href="/sourceCode/list">返回列表</a>
+                </div>
             </div>
             <!-- /row -->
         </div>

@@ -4,17 +4,7 @@ var router = express.Router();
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   //res.send('respond with a resource');
-    res.render('question/tagList', { title: 'Express' });
-});
-
-router.get('/tagList', function(req, res, next) {
-    //res.send('respond with a resource');
-    res.render('question/tagList', { title: 'Express' });
-});
-
-router.get('/tagAdd', function(req, res, next) {
-    //res.send('respond with a resource');
-    res.render('question/tagAdd', { title: 'Express' });
+    res.render('tag/list', { title: 'Express' });
 });
 
 

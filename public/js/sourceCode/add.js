@@ -7,6 +7,7 @@ function init(){
 var save=function() {
     var url ='/v1/api/admin/sourceCode/insert';
     var data = {
+        "tagId":$("#tagId").val(),
         "describe":toMarkdown(editor.getMarkdown()),
         "name":$("#name").val(),
         "url":$("#url").val()

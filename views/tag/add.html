@@ -15,7 +15,8 @@
                     <br/>
                     <div>
                         <span>图&nbsp;片</span>
-                        <input type="file" name="file" id="file"/>
+                        <img class="tagImage" src="https://gss3.bdstatic.com/7Po3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=05f46e0580d4b31cf03c93bdbfed4042/2cf5e0fe9925bc31137974de55df8db1cb13704b.jpg"/>
+                        <input type="file" name="file" id="file" class="fileUpload" style="display: none;" onchange="setImage(this)"/>
                     </div>
                     <div style="margin-top: 18px;" style="display: inline-block;">
                         <span>标签介绍</span>
@@ -30,7 +31,7 @@
     </div>
 </div>
 <!-- /main -->
-<link href="/css/question/tagAdd.css" rel="stylesheet">
+
 <script src="/plug/jquery/ajaxfileupload.js"></script>
 
 <link rel="stylesheet" href="/plug/jquery/jquery-ui.css">
@@ -40,6 +41,6 @@
 <script type="text/javascript" src="/plug/markdown/to-markdown.js"></script>
 <script type="text/javascript" src="/plug/markdown/markdown.min.js"></script>
 <script type="text/javascript" src="/js/common/soaryang.markdown.plug.js"></script>
-
-<script src="/js/question/tagAdd.js"></script>
+<link href="/css/tag/add.css" rel="stylesheet"/>
+<script src="/js/tag/add.js"></script>
 <%include ../common/footer.html%>

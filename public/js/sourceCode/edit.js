@@ -9,6 +9,7 @@ function init(){
             $("#name").val(sourceCodeObject.name);
             $("#url").val(sourceCodeObject.url);
             $("#container").val(sourceCodeObject.describe);
+            $("#tagId").val(sourceCodeObject.tagId)
 
         }
         console.log(JSON.stringify(data))

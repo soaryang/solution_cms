@@ -10,6 +10,7 @@ var users = require('./routes/user');
 var question = require('./routes/question');
 var article = require('./routes/article');
 var sourceCode = require('./routes/sourceCode');
+var tag = require('./routes/tag');
 
 var app = express();
 
@@ -47,6 +48,8 @@ app.use(function(req,res,next){
             authorize(req,res,next);
         }else if(req.originalUrl.indexOf('/sourceCode')!=-1){
             authorize(req,res,next);
+        }else if(req.originalUrl.indexOf('/tag')!=-1){
+            authorize(req,res,next);
         }else if("/login" == req.originalUrl){
             next();
         }else{
@@ -60,6 +63,7 @@ app.use('/user', users);
 app.use('/question', question);
 app.use('/article', article);
 app.use('/sourceCode', sourceCode);
+app.use('/tag', tag);
 
 
 // catch 404 and forward to error handler
