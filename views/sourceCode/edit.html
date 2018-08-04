@@ -1,0 +1,42 @@
+<link href="/plug/markdown/css/editormd.css" rel="stylesheet" />
+<%include ../common/header.html%>
+<%include ../common/navbar.html%>
+<div class="main">
+    <div class="main-inner">
+        <div class="container">
+            <div class="row">
+                <!-- /widget-header -->
+                <input type="hidden" class="id" id="id" value="<%=id%>"/>
+                <div class="widget-content">
+                    <div>
+                        <span>源码名称</span>
+                        <input type="text" id="name" name="name"/>
+                    </div>
+                    <div>
+                        <span>url:</span>
+                        <input type="text" id="url" name="url"/>
+                    </div>
+                    <div style="margin-top: 18px;">
+                        <span>问题描述</span>
+                        <div id="txtblogcontent">
+                            <textarea  name="content" id="container"></textarea>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary" onclick="save();">保存</a> <a class="btn" href="/question/questionList">返回列表</a>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /main-inner -->
+</div>
+<!-- /main -->
+
+<script src="/plug/markdown/editormd.min.js"></script>
+<script type="text/javascript" src="/plug/markdown/to-markdown.js"></script>
+<script type="text/javascript" src="/plug/markdown/markdown.min.js"></script>
+<script type="text/javascript" src="/js/common/soaryang.markdown.plug.js"></script>
+
+<script src="/js/sourceCode/edit.js"></script>
+<%include ../common/footer.html%>

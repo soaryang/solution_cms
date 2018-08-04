@@ -1,0 +1,36 @@
+<%include ../common/header.html%>
+<%include ../common/navbar.html%>
+
+<!-- /subnavbar -->
+<div class="main">
+    <div class="main-inner">
+        <div class="container">
+            <div class="row">
+                <div class="widget-content">
+                    <div>
+                        <a href="/sourceCode/add" class="btn btn-info">添加</a>
+                    </div>
+                    <br/>
+                    <table id="tableList" class="table table-striped"
+                           data-pagination-first-text="第一页"
+                           data-pagination-pre-text="前一页"
+                           data-pagination-next-text="下一页"
+                           data-pagination-last-text="最后一页">
+                    </table>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /main-inner -->
+</div>
+<!-- /main -->
+<link href="/css/sourceCode/list.css" rel="stylesheet"/>
+<link href="/plug/bootstrapTable/bootstrap-table.css" rel="stylesheet"/>
+<script src="/plug/bootstrapTable/bootstrap-table.js"></script>
+<script src="/plug/bootstrapTable/locale/bootstrap-table-zh-CN.js"></script>
+<script src="/js/common/soaryang.table.plug.js"></script>
+<script type="text/javascript" src="/js/common/soaryang.table.plug.js"></script>
+<script type="text/javascript" src="/js/sourceCode/list.js"></script>
+<%include ../common/footer.html%>
