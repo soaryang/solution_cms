@@ -9,6 +9,7 @@ var index = require('./routes/index');
 var users = require('./routes/user');
 var question = require('./routes/question');
 var article = require('./routes/article');
+var sourceCode = require('./routes/sourceCode');
 
 var app = express();
 
@@ -44,7 +45,8 @@ app.use(function(req,res,next){
             authorize(req,res,next);
         }else if(req.originalUrl.indexOf('/question')!=-1){
             authorize(req,res,next);
-            //return res.redirect('/question/questionInfo');
+        }else if(req.originalUrl.indexOf('/sourceCode')!=-1){
+            authorize(req,res,next);
         }else if("/login" == req.originalUrl){
             next();
         }else{
@@ -57,10 +59,12 @@ app.use('/', index);
 app.use('/user', users);
 app.use('/question', question);
 app.use('/article', article);
+app.use('/sourceCode', sourceCode);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+  var err = new Error('Not Found'+req.uri);
   err.status = 404;
     res.render('login');
 });

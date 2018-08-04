@@ -1,17 +1,19 @@
 var  tagId;
 var editor;
 function init(){
-    editor = initMarkdownplug('txtblogcontent');
+    editor = initMarkdownplug('describe');
 }
-var saveQuestion=function() {
-    var url ='/v1/api/admin/course/save';
+
+var save=function() {
+    var url ='/v1/api/admin/sourceCode/insert';
     var data = {
         "describe":toMarkdown(editor.getMarkdown()),
-        "courseName":$("#courseName").val()
+        "name":$("#name").val(),
+        "url":$("#url").val()
     };
     soaryang.postAjax(url,data,function (data) {
         if(data.code==200){
-            window.location.href="/course/courseList";
+            window.location.href="/sourceCode/list";
         }
     },function (data) {
     })
