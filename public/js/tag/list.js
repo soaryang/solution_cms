@@ -12,7 +12,7 @@ var screenColumnsArray =[
         width:'20%'
     },
     {
-        field: 'imagePath',
+        field: 'netUrl',
         title: '名称',
         align: 'center',
         width:'20%',
