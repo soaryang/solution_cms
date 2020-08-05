@@ -1,10 +1,12 @@
 var editor;
+var tagId;
 (function () {
     editor = initMarkdownplug('tagDescribeContent');
     var url = "/v1/api/admin/article/findById/"+$(".id").val();
     $.commonAjax(url, 'get','json',{}, function (data) {
         //console.log(data)
         if(data.code==200){
+            tagId =  data.data.tagId;
             $("#articleName").val(data.data.articleName);
             $("#container").val(data.data.content);
         }
@@ -22,7 +24,7 @@ var saveArticle=function() {
     };
     soaryang.postAjax(url,data,function (data) {
         if(data.code==200){
-            window.location.href="/article";
+            window.location.href="/article/"+tagId;
         }
     },function (data) {
 

@@ -9,18 +9,19 @@
             <div class="tagContent" >
                 <input type="hidden" class="id" id="id" value="<%=id%>"/>
                 <div style="display:inline;">
-                    <span>tag名称</span>
+                    <span>文章名称</span>
 
-                    <input type="text" id="articleName" name="articleName" maxlength="20" >
+                    <input type="text" style="height: 30px;" id="articleName" name="articleName" maxlength="20" >
                 </div>
                 <br/>
                 <div style="margin-top: 18px;" style="display: inline-block;">
-                    <span>标签介绍</span>
                     <div id="tagDescribeContent" >
                         <textarea  name="content" id="container"></textarea>
                     </div>
                 </div>
-                <a class="btn btn-primary save" onclick="saveArticle();">保存</a>
+                <div style="text-align: center;margin-top: 2px; margin-bottom: 5px;">
+                    <a class="btn btn-primary save" onclick="saveArticle();">保存</a>
+                </div>
             </div>
         </div>
     </div>
