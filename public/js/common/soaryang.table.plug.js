@@ -45,14 +45,14 @@
 
                 },
                 onLoadError:function(status){
-                    /*if (status == 444 || status== 401) {
+                    if (status == 444 || status== 401) {
                         window.location = '/login';
                         return;
                     }
                     if (status == 443) {
-                        window.location = '/film/danmuCheck';
-                        return;
-                    }*/
+                        //window.location = '/film/danmuCheck';
+                        //return;
+                    }
                 }
 
             });
